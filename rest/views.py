@@ -13,4 +13,3 @@ def map(request):
     return render(request,'rest/map.html')
 
 
-pass
