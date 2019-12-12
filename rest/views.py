@@ -6,13 +6,22 @@ from django.db import connection
 # Create your views here.
 
 
-def index(request):
+def Index(request):
     return render(request,'rest/index.html')
 
-def map(request):
-    return render(request,'rest/map.html')
 
+def Menu(request):
+    return render(request,'rest/menu.html')
 
-def menu(request):
-    return render(request,'rest/map.html')
+def Home(request):
+    return render(request,'rest/home.html')
+
+def Board(request):
+    return render(request,'rest/board.html')
+
+def Detail(request):
+    return render(request,'rest/detail.html')
+
+def Search(request):
+    return render(request,'rest/search.html')
 
