@@ -9,10 +9,6 @@ from django.db import connection
 def Index(request):
     return render(request,'rest/index.html')
 
-
-def Menu(request):
-    return render(request,'rest/menu.html')
-
 def Home(request):
     return render(request,'rest/home.html')
 
@@ -25,3 +21,5 @@ def Detail(request):
 def Search(request):
     return render(request,'rest/search.html')
 
+def Base(request):
+    return render(request,'rest/base.html')
