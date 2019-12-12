@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title> 로그인 </title>
+    <link href="static/css/bootstrap.min.css" rel='stylesheet' />
+
+</head>
+
+<body>
+    <div class='container'>
+        <h1>로그인</h1>
+
+      <form action='login' method='post'>
+        <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-wrapping">아이디</span>
+            </div>
+            <input type="text" name='ID' pattern="[a-z0-9_]+" maxlength="20" placeholder="ID" required class="form-control" aria-label="Username"
+                aria-describedby="addon-wrapping">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-wrapping">비밀번호</span>
+            </div>
+            <input type="password"name='PW' class="form-control" minlength="8" maxlength="20" placeholder="password" required aria-label="Username"
+                aria-describedby="addon-wrapping">
+        </div>
+        <br><button type="submit" class="btn btn-dark" >확인</button>
+      </form>
+
+    </div>
+</body>
+
+</html>
