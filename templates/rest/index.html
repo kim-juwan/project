@@ -6,53 +6,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+    <link href='static/css/bootstrap.min.css' rel='stylesheet' />
     <title>맛집</title>
 </head>
-<<<<<<< HEAD
 <body>
+    <div class='container'>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <div>Restaurant In Program</div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button>
-      
+        </button><br><br>
+        <label style="width:90px">Main Function</label>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">음식 카테고리 선택</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">선호 거리별 음식점 정보제공</a><br>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
+              <a class="nav-link dropdown-toggle">Dropdown</a>
+
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="식당을 검색하세요">
+            <button style="text-align:right" type="button" class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button><br><br><br>
+            <button type="button" class="btn btn-success" value="a">게시판</button><br><br><br>
           </form>
         </div>
       </nav>
-    
+      <img src="C:/Users/admin/Desktop/project-master/templates/rest/치킨.png">
+      <img src="C:/Users/admin/Desktop/project-master/templates/rest/치킨.png">
+      <img src="C:/Users/admin/Desktop/project-master/templates/rest/치킨.png">
+      <img src="C:/Users/admin/Desktop/project-master/templates/rest/치킨.png">
+      <img src="C:/Users/admin/Desktop/project-master/templates/rest/치킨.png">
+    </div>
+
+      
 </body>
 {% block content %}
-=======
-{% block content %}  
->>>>>>> 1c70f31c3a098e40f063e3d0a4540769b7f91454
  
 {% endblock %}
 
 
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
