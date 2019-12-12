@@ -1,62 +1,98 @@
-
-<!DOCTYPE html>
- 
-        
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href='static/css/bootstrap.min.css' rel='stylesheet' />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
     <title>맛집</title>
-</head>
-<body>
-    <div class='container'>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div>Restaurant In Program</div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button><br><br>
-        <label style="width:90px">Main Function</label>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">음식 카테고리 선택</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">선호 거리별 음식점 정보제공</a><br>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle">Dropdown</a>
+    <link href="static/css/mystyle.css" rel="stylesheet" />
+    <link href='/static/css/bootstrap.min.css' rel='stylesheet' />
+    <link rel='icon' type='image/png' sizes='16x16' href='/static/icon/menu.png'>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/cover/">
 
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="식당을 검색하세요">
-            <button style="text-align:right" type="button" class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button><br><br><br>
-            <button type="button" class="btn btn-success" value="a">게시판</button><br><br><br>
-          </form>
-        </div>
-      </nav>
-      <img src="C:/Users/admin/Desktop/project-master/templates/rest/치킨.png">
-      <img src="C:/Users/admin/Desktop/project-master/templates/rest/치킨.png">
-      <img src="C:/Users/admin/Desktop/project-master/templates/rest/치킨.png">
-      <img src="C:/Users/admin/Desktop/project-master/templates/rest/치킨.png">
-      <img src="C:/Users/admin/Desktop/project-master/templates/rest/치킨.png">
-    </div>
+    <!-- Bootstrap core CSS -->
+<link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+    
+  </head>
+
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+<div class='container'>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"> </nav>
+      <h1>R.I.P</h1>
+      <h3>Restaurant In Program</h3>
       
-</body>
-{% block content %}
- 
-{% endblock %}
-
-
-<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+        <div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+          
       </div>
+      </div>
+          <div class='container'>
+  <div style='margin-top:30px'>
+      
+    </div>
+    </div>
+    </div>
+  </header>
+  <main role="main" class="inner cover">
+    <h3 class="cover-heading">Main Function</h3>
+    <p class="lead">
+            <div class='container' width='600px'>
+                
+            
+                <button class = 'btn btn-outline-dark' onclick="location.href='/rest/board'" >Board</button>
+                <button class = 'btn btn-outline-dark' onclick="location.href='/rest/search'" >Search</button>
+                <div style='margin-top:30px'></div>
+      <img src="\static\icon\sashimi.png">
+      <img src="\static\icon\burger.png">
+      <img src="\static\icon\bibimbap.png">
+      <img src="\static\icon\kimchi.png">
+            
+                </div>
+    </p>
+  </main>
+
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p>you will get enough time with this program </p>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
