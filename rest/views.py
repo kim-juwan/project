@@ -13,3 +13,6 @@ def map(request):
     return render(request,'rest/map.html')
 
 
+def menu(request):
+    return render(request,'rest/map.html')
+
