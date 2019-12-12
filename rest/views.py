@@ -8,7 +8,7 @@ from . import models
 
 
 def Index(request):
-    data = models.database.select()
+    data = models.Database.Select_Asc()
     print(data)
     return render(request,'rest/index.html')
 
