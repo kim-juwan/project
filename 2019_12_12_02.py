@@ -6,10 +6,10 @@ from selenium.webdriver.chrome.options import Options
 import json
 import csv
 
-f = open('database1.csv','w+',newline='')
+f = open('database1.csv','w',newline='',encoding='utf-8')
 wr = csv.writer(f)
-rd = csv.reader(f)
-print(rd)
+
+
 
 lists = []
 for j in range(16):
@@ -31,14 +31,7 @@ for dict1 in lists:
             meta = dic1['meta']['is_end']
             
             for result in results:
-                cnt = 0
-                name = result['place_name']
-                for li in rd:
-                    if li[0] == name:
-                        cnt = 1
-                    print(1)
-                if cnt == 1:
-                    break    
+                name = result['place_name']    
                 address = result['road_address_name']
                 category = result['category_name']
                 phone = result['phone']
@@ -49,11 +42,12 @@ for dict1 in lists:
                 x = float(result['x'])
                 y = float(result['y'])
                 lists = [name,address,category,new_url,phone,url,distance,x,y]
+               
+                
                 wr.writerow(lists)
-                # print(lists)
-            
             if meta == True:
                 break
-        # wr.writerow('******************')
+                
+
 f.closed
 print('끝')
