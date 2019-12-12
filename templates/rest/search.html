@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/css/mystyle.css" rel="stylesheet" />
     <title>검색</title>
 </head>
 <body>
-    <input class="form-control mr-sm-2" type="search" placeholder="식당을 검색하세요">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button><br><br><br>
-
-    <label style="width:90px">상세검색1-원하는 종류를 선택해주세요</label>
+    <input class="form-control mr-sm-2" style="width:300px" type="search" placeholder="식당을 검색하세요">
+    <button class = 'btn btn-outline-dark' style="margin-top:5px" onclick="location.href='/rest/detail'" >검색</button><br><br><br>
+    <label style="width:300px">상세검색1-원하는 종류를 선택해주세요</label>
     <div class='input_chk'>
             <input type="checkbox" id='kor' class='chk'required>
             <label for='check' id='kor'>한식</label>
@@ -22,16 +23,17 @@
             <label for='check' id='jpn'>일식</label>
 
             <input type="checkbox" id='ame' class='chk'required>
-            <label for='check' id='ame'>양식</label><br><br><br><br>
+            <label for='check' id='ame'>양식</label><br>
             </div>
 
-
-        <label style="width:90px">상세검색2-거리</label>
+        <label style="width:200px">상세검색2-거리</label>
         <select name="detail">
             <option value="50">50m</option>
             <option value="100">100m</option>
             <option value="200">200m</option>
             <option value="300">300m</option>
         </select><br />
+        <button class = 'btn btn-outline-dark' style="margin-top:5px" onclick="location.href='/rest/detail'" >검색</button>
 </body>
 </html>
+
