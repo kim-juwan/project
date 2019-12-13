@@ -5,12 +5,15 @@ import cx_Oracle as oci
 from django.db import connection
 from . import models
 # Create your views here.
-
-
+model = models.Database()
+func = models.Func()
 def Index(request):
-    data = models.Database.Select_Asc()
+    data = model.Select_Asc()
     print(data)
-    return render(request,'rest/index.html')
+
+    new_data = func.randnum(data,5)
+    print(new_data)
+    return render(request,'rest/index.html',{'data':new_data})
 
 def Home(request):
     return render(request,'rest/home.html')
