@@ -4,10 +4,13 @@ import time
 import requests
 from selenium.webdriver.chrome.options import Options
 import json
-import csv
+import cx_Oracle as oci
 
-f = open('database1.csv','w',newline='',encoding='utf-8')
-wr = csv.writer(f)
+
+
+conn = oci.connect('admin/1234@192.168.99.100:32764/xe',encoding='utf-8')
+cursor = conn.cursor()
+   
 
 
 
@@ -33,21 +36,32 @@ for dict1 in lists:
             for result in results:
                 name = result['place_name']    
                 address = result['road_address_name']
-                category = result['category_name']
+                try:
+                    category = result['category_name'].split('>')[1]
+                    category = category.strip()
+                except:
+                    category = '기타'
+
                 phone = result['phone']
                 distance = int(result['distance'])
                 url = result['place_url']
                 new_url = url.replace('place.','').split('/')
-                new_url = new_url[0] + '//' + new_url[2] + '/link/map/' + new_url[3]
+                
                 x = float(result['x'])
                 y = float(result['y'])
-                lists = [name,address,category,new_url,phone,url,distance,x,y]
+                lists = [new_url[3],name,address,category,phone,distance,x,y]
                
-                
-                wr.writerow(lists)
+                try:
+                    insert_sql = 'INSERT INTO REST(ID,NAME,ADDR,CATE,PHONE,DIST,LNG,LAT) VALUES (:1,:2,:3,:4,:5,:6,:7,:8)'
+                    cursor.execute(insert_sql,lists)
+                except:
+                    print('pass')
+                    pass
+                    
+                print(1)
             if meta == True:
                 break
                 
 
-f.closed
+conn.commit()
 print('끝')
