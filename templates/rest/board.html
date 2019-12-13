@@ -7,61 +7,43 @@
     <title>게시판</title>
 </head>
 <body>
-        <table border="1" bordercolor="blue" width ="800" height="300" align = "center" >
-                <tr bgcolor="blue" align ="center">
-                <p><td colspan = "5" span style="color:white">항목</td></p>
+        <style>      
+                table {border: 1px solid #ec720d;}
+        </style>
+        <div class='container' align='center' style='margin-top:20px'>
+                <h1>R.I.P</h1>
+                <h3>Restaurant In Program</h3>
+        </div>
+        <div style='margin-top:50px'></div>
+        
+        <table border="1" bordercolor="blue" width ="800" height="350" align = "center" >
+                <tr align = "center">
+                <td width ="140" >REST_NAME</td>
+                <td>REST_Contents</td>
                 </tr>
-                <tr align = "center" bgcolor="skybule">
-                <td>REST_NAME</td>
-                <td>REST_CATEGORY</td>
-                <td>REST_DIST</td>
-                <td>거리</td>
-                <td>거리</td>
-                </tr>
+
                 <tr>
-                <td>고봉김밥</td>
-                <td>양식</td>
-                <td></td>
+                <td height="180" align='center'><img src="\static\icon\sashimi.png"><br>
+                <a href="#" class="btn btn-lg btn-secondary" onclick="location.href='/rest/board'">more detail</a></td>
+                <td>식당명: 고봉김밥<br>평점: 4<br>가격대:5500~<br>도보:3분</td>
                 </tr>
+
                 <tr>
-                <td>노봉김밥</td>
-                <td>일식</td>
-                <td>5,000</td>
+                <td height="180" align='center'><img src="\static\icon\burger.png"><br><a href="detail">more detail</a></td>
+                <td>식당명: 고봉김밥<br>평점: 4<br>가격대:5500~<br>도보:3분</td>
                 </tr>
+
                 <tr>
-                <td>도봉김밥</td>
-                <td>중식</td>
-                <td>30,000</td>
+                <td height="180" align='center'><img src="\static\icon\bibimbap.png"><br><a href="detail">more detail</a></td>
+                <td>식당명: 고봉김밥<br>평점: 4<br>가격대:5500~<br>도보:3분</td>
                 </tr>
+
                 <tr>
-                <td rowspan="3" align = "center" bgcolor="skyblue">총계</td>
-                <td>수입</td>
-                <td>지출</td>
+                <td height="180" align='center'><img src="\static\icon\kimchi.png"><br><a href="detail">more detail</a></td>
+                <td>식당명: 고봉김밥<br>평점: 4<br>가격대:5500~<br>도보:3분</td>
                 </tr>
-                <tr>
-                <td>1,000,000</td>
-                <td>35,000</td>	
-                </tr>
-                <tr>
-                <td>남은돈</td>
-                <td>965,000</td>	
+
                 </tr>
             </table>
-    <div style='margin-top:30px'>
-            <img src="\static\icon\menu.png">
-            <a href="detail">정보얻으러가기</a><br>
-
-            <img src="\static\icon\menu.png">
-            <a href="detail">정보얻으러가기</a><br>
-
-            <img src="\static\icon\menu.png">
-            <a href="detail">정보얻으러가기</a><br>
-
-            <img src="\static\icon\menu.png">
-            <a href="detail">정보얻으러가기</a><br>
-
-            <img src="\static\icon\menu.png">
-            <a href="detail">정보얻으러가기</a><br>
-    </div>
 </body>
 </html>
