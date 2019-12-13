@@ -4,22 +4,41 @@ from django.http import HttpResponse
 import cx_Oracle as oci
 from django.db import connection
 from . import models
+
+
 # Create your views here.
 model = models.Database()
 func = models.Func()
+
+
 def Index(request):
     data = model.Select_Asc()
-    print(data)
+    # print(data)
 
     new_data = func.randnum(data,5)
-    print(new_data)
+    # print(new_data)
     return render(request,'rest/index.html',{'data':new_data})
 
 def Home(request):
     return render(request,'rest/home.html')
 
 def Board(request):
-    return render(request,'rest/board.html')
+    
+    no = int(request.GET.get('no',1))
+    row = 10
+    data = model.Select_Row(no,row)
+
+    if len(model.Select_Asc())%row == 0:
+        leng = len(model.Select_Asc())//row 
+    else:
+        leng = len(model.Select_Asc())//row + 1
+    print(no,leng)
+
+
+    leng2 = range(1,leng+1)
+
+
+    return render(request,'rest/board.html',{'asc_data':data,'no':no,'leng':leng2})
 
 def Detail(request):
     return render(request,'rest/detail.html')
