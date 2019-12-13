@@ -8,8 +8,8 @@ from . import models
 
 
 def Index(request):
-    data = models.Database.Select_Asc()
-    print(data)
+    # data = models.Database.Select_Asc()
+    # print(data)
     return render(request,'rest/index.html')
 
 def Home(request):

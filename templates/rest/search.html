@@ -1,39 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/static/css/mystyle.css" rel="stylesheet" />
-    <title>검색</title>
-</head>
+{% extends 'rest/base.html' %}
+
+{% block content %}
+
 <body>
-    <input class="form-control mr-sm-2" style="width:300px" type="search" placeholder="식당을 검색하세요">
-    <button class = 'btn btn-outline-dark' style="margin-top:5px" onclick="location.href='/rest/detail'" >검색</button><br>
-    <label style="width:300px">상세검색1-원하는 종류를 선택해주세요</label>
-    <div class='input_chk'>
+    <div class="container" align='center'>
+    <h2 style="width:500px">Detail 1-Select Food Style</h2>
+    <div style='margin-top:30px'></div>
+    <div class='input_chk' > 
             <input type="checkbox" id='kor' class='chk'required>
-            <label for='check' id='kor'>한식</label>
+            <label for='check' id='kor'>Korean</label>
 
             <input type="checkbox" id='cna' class='chk'required>
-            <label for='check' id='cna'>중식</label>
+            <label for='check' id='cna'>Chinese</label>
 
             <input type="checkbox" id='jpn' class='chk'required>
-            <label for='check' id='jpn'>일식</label>
+            <label for='check' id='jpn'>Japanese</label>
 
             <input type="checkbox" id='ame' class='chk'required>
-            <label for='check' id='ame'>양식</label><br>
+            <label for='check' id='ame'>American</label><br>
             </div>
-
-        <label style="width:200px">상세검색2-거리</label>
+            <div style='margin-top:70px'></div>
+        <h2 style="width:500px">Detail 2-Distance</h2>
         <select name="detail">
             <option value="50">50m</option>
             <option value="100">100m</option>
             <option value="200">200m</option>
             <option value="300">300m</option>
         </select><br />
-        <button class = 'btn btn-outline-dark' style="margin-top:5px" onclick="location.href='/rest/detail'" >검색</button>
+        <div style='margin-top:30px'></div>
+        <button class = 'btn btn-outline-dark' style="margin-top:5px" onclick="location.href='/rest/detail'" >Search</button>
+    </div>
+    </div>
 </body>
+{% endblock %}
 </html>
 
