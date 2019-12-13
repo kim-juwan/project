@@ -7,7 +7,7 @@ wr = csv.writer(f)
 for i in range(1,3):
     open_api = 'https://dapi.kakao.com/v2/local/search/category.json?category_group_code=FD6&rect=129.088003,35.233020,129.090083,35.231322&x=129.090399&y=35.229574&sort=distance&page=%s'%i
     api_key = 'f56b92905ade194d1254314f9e91d103'
-
+    
     res = requests.get(open_api, headers={'Authorization' : 'KakaoAK ' + api_key } )
     dic1 = res.json()
     results = dic1['documents']
