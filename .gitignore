@@ -9,3 +9,4 @@ rest/__pycache__/admin.cpython-37.pyc
 rest/__pycache__/models.cpython-37.pyc
 rest/__pycache__/urls.cpython-37.pyc
 rest/__pycache__/views.cpython-37.pyc
+.vscode/settings.json
