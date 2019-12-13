@@ -4,34 +4,61 @@
 {% block content %}
 
 <body>
-    <div class="container" align='center'>
-    <h2 style="width:500px">Detail 1-Select Food Style</h2>
-    <div style='margin-top:30px'></div>
-    <div class='input_chk' > 
-            <input type="checkbox" id='kor' class='chk'required>
-            <label for='check' id='kor'>Korean</label>
+    <table style='width:100%;' >
+            <td style='width:25%; text-align: center;'>
+            &nbsp;<img src="\static\icon\sashimi.png"><br>
+            &nbsp;<img src="\static\icon\burger.png"><br>
+            &nbsp;<img src="\static\icon\bibimbap.png"><br>
+            &nbsp;<img src="\static\icon\kimchi.png"><br>
+            &nbsp;<img src="\static\icon\noodles.png">
+        </td>
+        <td style='width:50%; text-align: center; vertical-align:top;'>
 
-            <input type="checkbox" id='cna' class='chk'required>
-            <label for='check' id='cna'>Chinese</label>
+            <div class="container" align='center' style='margin-top:150px'>
+            <h2 style="width:400px">Detail 1-Select Food Style</h2>
+            <div style='margin-top:30px'></div>
+            <div class='input_chk' style="width:700px"> 
+                <input type="checkbox" id='kor' class='chk'required>
+                <label for='check' id='kor' style="font-size:1.5em; color: #ff9a01;" >Korean</label>&nbsp;&nbsp;
 
-            <input type="checkbox" id='jpn' class='chk'required>
-            <label for='check' id='jpn'>Japanese</label>
+                <input type="checkbox" id='cna' class='chk'required>
+                <label for='check' id='cna' style="font-size:1.5em; color: #ff9a01;">Chinese</label>&nbsp;&nbsp;
 
-            <input type="checkbox" id='ame' class='chk'required>
-            <label for='check' id='ame'>American</label><br>
+                <input type="checkbox" id='jpn' class='chk'required>
+                <label for='check' id='jpn' style="font-size:1.5em; color: #ff9a01;">Japanese</label>&nbsp;&nbsp;
+
+                <input type="checkbox" id='ame' class='chk'required>
+                <label for='check' id='ame' style="font-size:1.5em; color: #ff9a01;">American</label>&nbsp;&nbsp;
+
+                <input type="checkbox" id='etc' class='chk'required>
+                <label for='check' id='etc' style="font-size:1.5em; color: #ff9a01;">Etc</label>
             </div>
-            <div style='margin-top:70px'></div>
-        <h2 style="width:500px">Detail 2-Distance</h2>
-        <select name="detail">
-            <option value="50">50m</option>
-            <option value="100">100m</option>
-            <option value="200">200m</option>
-            <option value="300">300m</option>
-        </select><br />
-        <div style='margin-top:30px'></div>
-        <button class = 'btn btn-outline-dark' style="margin-top:5px" onclick="location.href='/rest/detail'" >Search</button>
+                <div style='margin-top:70px'></div>
+                <h2 style="width:500px">Detail 2-Distance</h2>
+                <select name="detail" style="width:80px">
+                    <option value="50">50m</option>
+                    <option value="100">100m</option>
+                    <option value="200">200m</option>
+                    <option value="300">300m</option>
+                </select>&nbsp;&nbsp;
+                
+                <button class = 'btn btn-outline-dark'  onclick="location.href='/rest/detail'" >Search</button> &nbsp;&nbsp;
+    </td>
+    <td style='width:25%; text-align: center;'>
+            &nbsp;<img src="\static\icon\rice.png"><br/>
+            &nbsp;<img src="\static\icon\spaghetti.png"><br/>
+            &nbsp;<img src="\static\icon\taco.png"><br/>
+            &nbsp;<img src="\static\icon\takoyaki.png"><br/>
+            &nbsp;<img src="\static\icon\tempura.png"><br/>
+            &nbsp;<img src="\static\icon\onigiri.png"><br/>
+    </td>
+        </div>
+        </div>
+
+
     </div>
     </div>
+</table>
 </body>
 {% endblock %}
 </html>
