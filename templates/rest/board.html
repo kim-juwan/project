@@ -1,55 +1,57 @@
-<!DOCTYPE html>
 {% extends 'rest/base.html' %}
 
+<!DOCTYPE html>
+
 {% block content %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>게시판</title>
-</head>
+
 <body>
-        <style>      
-                table {border: 1px solid #ec720d;}
+        <style>
+                table {
+                        border: 1px solid #ec720d;
+                }
         </style>
         <div class='container' align='center' style='margin-top:20px'>
                 <h1>R.I.P</h1>
                 <h3>Restaurant In Program</h3>
         </div>
         <div style='margin-top:50px'></div>
+
+        <table border="1" bordercolor="blue" width="auto" height="350" align="center">
+                <tr align="center">
+                        <td width="140">REST_IMAGE</td>
+                        <td>REST_NAME</td>
+                        <td>REST_ADDR</td>
+                        <td>REST_CATE</td>
+                        <td>REST_DIST</td>
+                </tr>
+                {% for data in asc_data %}
+                <tr height="180" align='center'>
+                        <td><img src="\static\icon\sashimi.png"></td>
+                        <td>{{data.2}}</td>
+                        <td>{{data.1}}</td>
+                        <td>{{data.4}}</td>
+                        <td>{{data.8}}m</td>
+
+                </tr>
+                {% endfor %}
+
+                <tr>
+                        <ul class="pagination">
+                                {% for i in leng %}
+                                {% if no == i %}
+                                <li class="page-item active" aria-current="page"><span class="page-link">{{i}}<span class="sr-only"></span></span></li>
+                                {% else %}
+                                <li class="page-item"><a class="page-link" href="?no={{i}}">{{i}}</a></li>
+                                {% endif %}
+                                {% endfor %}
+                        </ul>
+                </tr>
+
+        </table>
         
-        <table border="1" bordercolor="blue" width ="800" height="350" align = "center" >
-                <tr align = "center">
-                <td width ="140" >REST_NAME</td>
-                <td>REST_Contents</td>
-                </tr>
-
-                <tr>
-                <td height="180" align='center'><a href="detail" class="btn btn-lg btn-secondary"><img src="\static\icon\sashimi.png"></a>
-                <td>식당명: 고봉김밥<br>
-                    평점: 4<br>
-                    가격대:5500~<br>
-                    도보:3분</td>
-                </tr>
-
-                <tr>
-                <td height="180" align='center'><a href="detail" class="btn btn-lg btn-secondary"><img src="\static\icon\burger.png"></a>
-                <td>식당명: 고봉김밥<br>평점: 4<br>가격대:5500~<br>도보:3분</td>
-                </tr>
-
-                <tr>
-                <td height="180" align='center'><a href="detail" class="btn btn-lg btn-secondary"><img src="\static\icon\bibimbap.png"></a>
-                <td>식당명: 고봉김밥<br>평점: 4<br>가격대:5500~<br>도보:3분</td>
-                </tr>
-
-                <tr>
-                <td height="180" align='center'><a href="detail" class="btn btn-lg btn-secondary"><img src="\static\icon\kimchi.png"></a>
-                <td>식당명: 고봉김밥<br>평점: 4<br>가격대:5500~<br>도보:3분</td>
-                </tr>
-
-                </tr>
-            </table>
+               
+        
 </body>
+
 </html>
 {% endblock %}
