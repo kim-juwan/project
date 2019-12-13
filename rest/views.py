@@ -6,9 +6,14 @@ from django.db import connection
 from . import models
 
 
+
 # Create your views here.
 model = models.Database()
 func = models.Func()
+
+
+
+
 
 
 def Index(request):
@@ -24,7 +29,7 @@ def Home(request):
 
 def Board(request):
     
-    no = int(request.GET.get('no',1))
+    no = int(request.GET.get('no','1'))
     row = 10
     data = model.Select_Row(no,row)
 
@@ -37,7 +42,8 @@ def Board(request):
 
     leng2 = range(1,leng+1)
 
-
+    
+        
     return render(request,'rest/board.html',{'asc_data':data,'no':no,'leng':leng2})
 
 def Detail(request):
