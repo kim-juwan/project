@@ -5,7 +5,7 @@ import requests
 from selenium.webdriver.chrome.options import Options
 import json
 import cx_Oracle as oci
-
+ 
 
 
 conn = oci.connect('admin/1234@192.168.99.100:32764/xe',encoding='utf-8')
