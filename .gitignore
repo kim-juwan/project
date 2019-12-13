@@ -1,2 +1,11 @@
 
 .vscode/settings.json
+*.pyc
+project/__pycache__/__init__.cpython-37.pyc
+project/__pycache__/settings.cpython-37.pyc
+project/__pycache__/urls.cpython-37.pyc
+rest/__pycache__/__init__.cpython-37.pyc
+rest/__pycache__/admin.cpython-37.pyc
+rest/__pycache__/models.cpython-37.pyc
+rest/__pycache__/urls.cpython-37.pyc
+rest/__pycache__/views.cpython-37.pyc
