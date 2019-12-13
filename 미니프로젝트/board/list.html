@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href='/static/css/bootstrap.min.css' rel='stylesheet' />
+</head>
+<body>
+    <div class='container'>
+        <div class='form-inline' style='width:100%'>
+        <h1>게시판</h1> 
+            <a href='write'style='margin-right:10px; margin-left:10px' class="btn btn-outline-dark">글쓰기</a>
+            <a href='index' style='margin-right:10px' class="btn btn-outline-dark">홈으로</a>
+        </div>    
+            <table class = 'table table-striped' style='width:100%;text-align:center'  >
+                <thead class='thead-dark'>
+                <tr>
+                    <th style='width:5%'>#</th>
+                    <th style='width:40%;text-align:left;'>제목</th>
+                    <th style='width:15%'>작성자</th>
+                    <th style='width:25%'>작성일</th>
+                    <th style='width:15%'>조회수</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data %}
+                <tr>
+                    <th>{{i.0}}</th>
+                    <th style='width:40%;text-align:left;'><a href='content?no={{i.0}}'>{{i.1}}</a></th>
+                    <th>{{i.3}}</th>
+                    <th>{{i.5}}</th>
+                    <th>{{i.4}}</th>
+                </tr>
+                {%endfor%}
+            </tbody>
+            </table>
+    
+</div>
+</body>
+</html>

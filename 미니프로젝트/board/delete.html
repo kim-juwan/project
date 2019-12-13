@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>DELETE</title>
+        <link href='/static/css/bootstrap.min.css' rel='stylesheet' />
+</head>
+
+<body>
+        <div class='container' style='width:100%'>
+                <h1>글 삭제</h1>
+                <div class='box'>
+                        <form action='/board/delete' method='post'>
+                                <a>정말로 삭제하시겠습니까?</a>
+                                <input type=hidden name='no' value='{{no}}' />
+                                <button type='submit' class="btn btn-outline-success"
+                                        style='margin-left:10px'>삭제</button>
+                                <button class="btn btn-outline-dark" onclick=' history.back()'>취소</button>
+                        </form>
+                </div>
+        </div>
+</body>
+
+</html>

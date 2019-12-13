@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CONTENT</title>
+    <link href="/static/css/bootstrap.min.css" rel='stylesheet' />
+</head>
+<body>
+        <div class='container' style='width:100%'>
+                <h1>{{data.1}}</h1>
+                
+                <form method='post'>
+                  
+                    <div class='form-inline' style='margin-top:10px'>
+                        <h5 style='border-right:10%;'>작성자 : {{data.3}} &nbsp; &nbsp; </h5>
+                        <h5 style='border-right:10%;'>조회수 : {{data.4}} &nbsp; &nbsp; </h5>
+                        <h5 style='border-right:10%;'>작성일 : {{data.5}} &nbsp; &nbsp; </h5>
+                    </div>
+                    <div style='margin-top:10px'>
+                        <button type="button" class="btn btn-outline-dark" onclick="location.href='list'">목록</button>
+                        
+                        <button type="button" class="btn btn-outline-dark"
+                            onclick="location.href='#'">PREV</button>
+                        
+                        <button type="button" class="btn btn-outline-dark"
+                            onclick="location.href='#'">NEXT</button>
+                        
+                    </div>
+                    <div class='form-inline' style='margin-top: 5px;'>
+                        <h3>내용</h3>
+                        <a style='margin-left:50px'> 첨부파일 : <img src='data:;base64,{{img}}' width='100px' height="100px"></a>
+                    </div>
+                    <div class='box' style='margin-top:5px'>
+                        {{data.2 | linebreaksbr}}
+                        
+        
+                    </div>
+        
+        
+                 
+                    <div style='margin-top:10px'>
+        
+        
+                        
+        
+                        <button type="button" class="btn btn-outline-success"
+                            onclick="location.href='update'" formaction='boardw.html'>수정</button>
+                        <button type="button" class="btn btn-outline-success" 
+                        onclick="location.href='delete?no={{data.0}}'">삭제</button>
+        
+                        
+                    </div>
+                </form>
+        
+            </div>
+</body>
+</html>
