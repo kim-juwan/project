@@ -20,7 +20,7 @@ conn = oci.connect('admin/1234@192.168.99.100:32764/xe',encoding='utf-8')
 cursor = conn.cursor()
 
 driver = webdriver.Chrome('./chromedriver.exe', options=chrome_options)
-url = 'https://place.map.kakao.com/8283020'
+url = 'https://place.map.kakao.com/11877634'
 
 driver.get(url)
 time.sleep(3)
@@ -56,61 +56,55 @@ try:
 
 except:
     pass
+
+
 menu3 = []
 menu4 = ''
 menu5 = ''
 menu6 = ''
-try:
+if soup.find('ul',class_='list_menu').find('li',class_='photo_type') is not None:
     menu_list = soup.find('ul',class_='list_menu').find_all('li',class_='photo_type')
     for menu in menu_list:
         menu_li1 = menu.find('div',class_='info_menu').text.strip().replace('명:','').split('\n')
-        print(menu_li1[0],menu_li1[1],menu_li1[2])
-        try:
-            print(1)
+        
+        if len(menu_li1) > 2:
             if menu_li1[0] == menu_li1[2]:
-                print(2)
                 menu_li2 = [menu_li1[0],menu_li1[1]]
             else:
-                print(3)
-                menu_li2 = [menu_li1[0],menu_li1[1],menu_li[2]]
+                menu_li2 = [menu_li1[0],menu_li1[1],menu_li1[2]]
                 
-        except:
-            try:
-                print(4)
-                menu_li2 = [menu_li1[0],menu_li1[1]]
-            except:
-                print(5)
-                menu_li2 = [menu_li1[0]]
-        print(menu_li2)
+        elif len(menu_li1) == 2:
+            menu_li2 = [menu_li1[0],menu_li1[1]]
+        else:
+            menu_li2 = [menu_li1[0]]
+
         menu2 = ' / '.join(menu_li2)
-        print(menu2)
+
         menu3.append(menu2)
 
     menu4 = ' | '.join(menu3)
-except:
-    pass
-try:
+    print(1)
+if soup.find('ul',class_='list_menu').find('li',class_='nophoto_type') is not None:
     menu_list = soup.find('ul',class_='list_menu').find_all('li',class_='nophoto_type')
     for menu in menu_list:
         menu_li1 = menu.find('div',class_='info_menu').text.strip().replace('명:','').split('\n')
-        try:
+        if len(menu_li1) > 2:
             if menu_li1[0] == menu_li1[2]:
                 menu_li2 = [menu_li1[0],menu_li1[1]]
             else:
-                menu_li2 = [menu_li1[0],menu_li1[1],menu_li[2]]
+                menu_li2 = [menu_li1[0],menu_li1[1],menu_li1[2]]
                 
-        except:
-            try:
-                menu_li2 = [menu_li1[0],menu_li1[1]]
-            except:
-                menu_li2 = [menu_li1[0]]
+        elif len(menu_li1) == 2:
+            menu_li2 = [menu_li1[0],menu_li1[1]]
+        else:
+            menu_li2 = [menu_li1[0]]
+
 
         menu2 = ' / '.join(menu_li2)
-
+        menu3.append(menu2)
     menu5 = ' | '.join(menu3)
-except:
-    pass
-try:
+    print(menu5)
+if soup.find('ul',class_='list_menu').find('li',class_='menuonly_type') is not None:
     menu_list = soup.find('ul',class_='list_menu').find_all('li',class_='menuonly_type')
     for menu in menu_list:
         menu_li1 = menu.find('div',class_='info_menu').text.strip().replace('명:','').split('\n')
@@ -118,9 +112,12 @@ try:
         
 
         menu3.append(menu_li1[0])
+
+
     menu6 = ' | '.join(menu3)
-except:
-    pass
+    print(3)
+
+
 tr_menu = [(menu4 +' | '+ menu5 +' | '+ menu6).strip(' | '), name]
 week_sql = 'UPDATE REST SET MENU=:1 WHERE NAME=:2'
 cursor.execute(week_sql, tr_menu)

@@ -320,7 +320,7 @@ for row in rows:
                 if menu_li1[0] == menu_li1[2]:
                     menu_li2 = [menu_li1[0],menu_li1[1]]
                 else:
-                    menu_li2 = [menu_li1[0],menu_li1[1],menu_li[2]]
+                    menu_li2 = [menu_li1[0],menu_li1[1],menu_li1[2]]
                     
             elif len(menu_li1) == 2:
                 menu_li2 = [menu_li1[0],menu_li1[1]]
@@ -329,7 +329,7 @@ for row in rows:
 
 
             menu2 = ' / '.join(menu_li2)
-
+            menu3.append(menu2)
         menu5 = ' | '.join(menu3)
     
     
@@ -351,7 +351,7 @@ for row in rows:
         img_soup = BeautifulSoup(driver.page_source, 'lxml')
     except:
         pass
-    
+    img=''
     try:
         img_url = img_soup.find('img', class_= 'img_photo').get('src')
         img = urllib.request.urlopen('https:'+img_url).read()
@@ -386,3 +386,4 @@ for row in rows:
     
     conn.commit()
     driver.quit()
+# https://map.kakao.com/?map_type=TYPE_MAP&target=walk&rt=,,,&rt1=부곡푸르지오&rt2=일송면옥&rtIds=,22375345
