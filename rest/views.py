@@ -25,7 +25,7 @@ def Index(request):
     return render(request,'rest/index.html',{'data':new_data})
 
 def Home(request):
-    return render(request,'rest/home.html')
+    return render(request,'rest/home.html',{'data1':'떡볶이공작소 부산대점','data2':'디델리 부산점'})
 
 def Board(request):
     
