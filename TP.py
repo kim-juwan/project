@@ -250,7 +250,7 @@ import cx_Oracle as oci
 conn = oci.connect('admin/1234@192.168.99.100:32764/xe',encoding='utf-8')
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--headless') #브라우저 안 보임
+# chrome_options.add_argument('--headless') #브라우저 안 보임
 chrome_options.add_argument('disable-gpu') # 가속 사용 x
 chrome_options.add_argument('lang=ko_KR') # 가짜 플러그인 탑재
 
@@ -269,7 +269,7 @@ for row in rows:
     soup = BeautifulSoup(driver.page_source, 'lxml')
     name = soup.find('h2',class_='tit_location').text
     week_list = []
-
+    print(name)
     if soup.find('strong',class_='tit_operation') is not None:
         if soup.find('div', class_= 'fold_contact') is None:
             week1 = soup.find('strong',class_='tit_operation').text.split('\n')[0]
@@ -285,17 +285,85 @@ for row in rows:
         week4 = str(week_list[0])
         for i in range(1, len(week_list)):
             week4 += (' '+str(week_list[i]))
+    # week4 = ' '.join(week_list)
+    menu3 = []
+    menu4 = ''
+    menu5 = ''
+    menu6 = ''
+    if soup.find('ul',class_='list_menu') is not None:
+        menu_list = soup.find('ul',class_='list_menu').find_all('li',class_='photo_type')
+        for menu in menu_list:
+            menu_li1 = menu.find('div',class_='info_menu').text.strip().replace('명:','').split('\n')
+            
+            if len(menu_li1) > 2:
+                if menu_li1[0] == menu_li1[2]:
+                    menu_li2 = [menu_li1[0],menu_li1[1]]
+                else:
+                    menu_li2 = [menu_li1[0],menu_li1[1],menu_li1[2]]
+                    
+            elif len(menu_li1) == 2:
+                menu_li2 = [menu_li1[0],menu_li1[1]]
+            else:
+                menu_li2 = [menu_li1[0]]
 
-    driver.find_element_by_class_name('frame_g').click()
-    time.sleep(1)
-    img_soup = BeautifulSoup(driver.page_source, 'lxml')
+            menu2 = ' / '.join(menu_li2)
 
+            menu3.append(menu2)
+
+        menu4 = ' | '.join(menu3)
+    
+    
+        menu_list = soup.find('ul',class_='list_menu').find_all('li',class_='nophoto_type')
+        for menu in menu_list:
+            menu_li1 = menu.find('div',class_='info_menu').text.strip().replace('명:','').split('\n')
+            if len(menu_li1) > 2:
+                if menu_li1[0] == menu_li1[2]:
+                    menu_li2 = [menu_li1[0],menu_li1[1]]
+                else:
+                    menu_li2 = [menu_li1[0],menu_li1[1],menu_li[2]]
+                    
+            elif len(menu_li1) == 2:
+                menu_li2 = [menu_li1[0],menu_li1[1]]
+            else:
+                menu_li2 = [menu_li1[0]]
+
+
+            menu2 = ' / '.join(menu_li2)
+
+        menu5 = ' | '.join(menu3)
+    
+    
+        menu_list = soup.find('ul',class_='list_menu').find_all('li',class_='menuonly_type')
+        for menu in menu_list:
+            menu_li1 = menu.find('div',class_='info_menu').text.strip().replace('명:','').split('\n')
+        
+            
+
+            menu3.append(menu_li1[0])
+
+
+        menu6 = ' | '.join(menu3)
+    
+    
+    try:    
+        driver.find_element_by_class_name('frame_g').click()
+        time.sleep(1)
+        img_soup = BeautifulSoup(driver.page_source, 'lxml')
+    except:
+        pass
+    
     try:
         img_url = img_soup.find('img', class_= 'img_photo').get('src')
         img = urllib.request.urlopen('https:'+img_url).read()
     except:
         pass
-    
+    try:
+        tr_menu = [(menu4 +' | '+ menu5 +' | '+ menu6).strip(' | '), name]
+        week_sql = 'UPDATE REST SET MENU=:1 WHERE NAME=:2'
+        cursor.execute(week_sql, tr_menu)
+        print(tr_menu)
+    except:
+        pass
     
     try:
         tr_week = [week4, name]
@@ -310,9 +378,11 @@ for row in rows:
         tr_img = [img, name]
         img_sql = 'UPDATE REST SET IMAGE=:1 WHERE NAME=:2'
         cursor.execute(img_sql, tr_img)
+        # print(img)
     except:
         pass
 
     driver.implicitly_wait(3)
-    print(name)
+    
     conn.commit()
+    driver.quit()
