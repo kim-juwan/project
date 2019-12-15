@@ -20,7 +20,7 @@ def Index(request):
     data = model.Select_Asc()
     # print(data)
 
-    new_data = func.randnum(data,5)
+    new_data = func.Randnum(data,5)
     # print(new_data)
     return render(request,'rest/index.html',{'data':new_data})
 
@@ -36,26 +36,13 @@ def Board(request):
     row = 10
     data = model.Select_Row(no,row)
 
-    if len(model.Select_Asc())%row == 0:
-        leng = len(model.Select_Asc())//row 
-    else:
-        leng = len(model.Select_Asc())//row + 1
-    print(no,leng)
-    leng2 = range(1,leng+1)
-    
-    
-    page = leng // 10 + 1
-    page_1 = leng % 10
-    
-    for i in range(1,page+1):
-        if ((10*(i-1))+1) <= no <= ((10*(i))+1):
-            ran10 = range(    (10*(i-1))+1,   (10*(i))+ 1    )
-    if  (((page-1)*10)+1) <= no <= leng+1:
-        ran10 = range((((page-1)*10)+1),leng+1)
+    # 페이지 나누는 함수
+    ran = func.Pagination(no,row,data)
+
 
     subno = no-1 
     addno = no +1    
-    return render(request,'rest/board.html',{'asc_data':data,'no':no,'leng':leng,'leng2':leng2,'subno':subno,'addno':addno,'ran10':ran10})
+    return render(request,'rest/board.html',{'asc_data':data,'no':no,'leng':ran[1],'subno':subno,'addno':addno,'ran10':ran[0]})
 
 def Detail(request):
     return render(request,'rest/detail.html')
