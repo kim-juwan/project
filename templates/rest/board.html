@@ -42,11 +42,11 @@
                         </tr>
                         {% for data in asc_data %}
                         <tr height="180" align='center'>
-                                <td><img src="\static\icon\sashimi.png"></td>
-                                <td>{{data.2}}</td>
+                                <td ><img src="data:;base64,{{data.4}}" width='130px' height='130px'/></td>
+                                <td>{{data.0}}</td>
                                 <td>{{data.1}}</td>
-                                <td>{{data.4}}</td>
-                                <td>{{data.8}}m</td>
+                                <td>{{data.2}}</td>
+                                <td>{{data.3}}m</td>
 
                         </tr>
                         {% endfor %}
@@ -60,7 +60,7 @@
                                 <ul class="pagination" >
                                         <li class="page-item">
                                                 {% if no != 1 %}
-                                                <a class="page-link" href="?no={{subno}}" aria-label="Previous">
+                                                <a class="page-link" href="?no={{subno}}&search_word={{search_word}}" aria-label="Previous">
                                                         <span aria-hidden="true">&laquo;</span>
                                                 </a>
                                                 {% endif %}
@@ -74,7 +74,7 @@
                                                                 class="page-link">{{i}}<span
                                                                         class="sr-only"></span></span></li>
                                                 {% else %}
-                                                <li class="page-item"><a class="page-link" href="?no={{i}}">{{i}}</a>
+                                                <li class="page-item"><a class="page-link" href="?no={{i}}&search_word={{search_word}}">{{i}}</a>
                                                 </li>
                                                 {% endif %}
 
@@ -86,7 +86,7 @@
 
                                         <li class="page-item">
                                                 {% if no != leng %}
-                                                <a class="page-link" href="?no={{addno}}" aria-label="Next">
+                                                <a class="page-link" href="?no={{addno}}&search_word={{search_word}}" aria-label="Next">
                                                         <span aria-hidden="true">&raquo;</span>
 
 

@@ -78,7 +78,7 @@ def Board(request):
         
     # print(new_data)
     ran20 = enumerate(data)
-    return render(request,'rest/board.html',{'asc_data':new_data,'no':no,'leng':ran[1],'subno':subno,'addno':addno,'ran10':ran[0],'ran20':ran20,'image':image})
+    return render(request,'rest/board.html',{'asc_data':new_data,'no':no,'leng':ran[1],'subno':subno,'addno':addno,'ran10':ran[0],'ran20':ran20,'image':image,'search_word':search_word})
 
 def Detail(request):
     return render(request,'rest/detail.html')
