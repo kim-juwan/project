@@ -62,7 +62,7 @@
             <a class="nav-link" href="index">Index</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="board" aria-disabled="true">Board</a>
+            <a class="nav-link" href="board?no=1&search_word=" aria-disabled="true">Board</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="search">Search</a>
@@ -71,9 +71,9 @@
       </div>
 
 
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search Restaurant" aria-label="Search">
-        <button class="btn btn-outline-secondary " type="submit" onclick='location.href="Board"'>Search</button>
+      <form class="form-inline my-2 my-lg-0" action="board" method="GET">
+        <input class="form-control mr-sm-2" type="text" name='search_word' placeholder="Search Restaurant" aria-label="Search">
+        <button class="btn btn-outline-secondary" type="submit" >Search</button>
         
       </form>
 

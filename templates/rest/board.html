@@ -49,7 +49,7 @@
         <ul class="pagination">
                 <li class="page-item">
                         {% if no != 1 %}
-                        <a class="page-link" href="?no={{subno}}" aria-label="Previous">
+                        <a class="page-link" href="?no={{subno}}&search_word={{search_word}}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                         </a>
                         {% endif %}
@@ -62,7 +62,7 @@
                         <li class="page-item active" aria-current="page"><span class="page-link">{{i}}<span
                                                 class="sr-only"></span></span></li>
                         {% else %}
-                        <li class="page-item"><a class="page-link" href="?no={{i}}">{{i}}</a></li>
+                        <li class="page-item"><a class="page-link" href="?no={{i}}&search_word={{search_word}}">{{i}}</a></li>
                         {% endif %}
 
                         
@@ -74,7 +74,7 @@
 
                 <li class="page-item">
                         {% if no != leng %}
-                        <a class="page-link" href="?no={{addno}}" aria-label="Next">
+                        <a class="page-link" href="?no={{addno}}&search_word={{search_word}}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
 
 
