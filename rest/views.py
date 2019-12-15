@@ -25,7 +25,10 @@ def Index(request):
     return render(request,'rest/index.html',{'data':new_data})
 
 def Home(request):
-    return render(request,'rest/home.html',{'data1':'떡볶이공작소 부산대점','data2':'디델리 부산점'})
+
+    # 출발점 x = 975771, y = 486419
+    # <a href='https://map.kakao.com/?map_type=TYPE_MAP&target=walk&rt=975229,486370,975234,486221&rt1={{data1}}&rt2={{data2}}&rtIds=1013597398,1543854818'>버튼</a>,{'data1':'떡볶이공작소 부산대점','data2':'디델리 부산점'}
+    return render(request,'rest/home.html')
 
 def Board(request):
     
@@ -38,13 +41,21 @@ def Board(request):
     else:
         leng = len(model.Select_Asc())//row + 1
     print(no,leng)
-
-
     leng2 = range(1,leng+1)
-
     
-        
-    return render(request,'rest/board.html',{'asc_data':data,'no':no,'leng':leng2})
+    
+    page = leng // 10 + 1
+    page_1 = leng % 10
+    
+    for i in range(1,page+1):
+        if ((10*(i-1))+1) <= no <= ((10*(i))+1):
+            ran10 = range(    (10*(i-1))+1,   (10*(i))+ 1    )
+    if  (((page-1)*10)+1) <= no <= leng+1:
+        ran10 = range((((page-1)*10)+1),leng+1)
+
+    subno = no-1 
+    addno = no +1    
+    return render(request,'rest/board.html',{'asc_data':data,'no':no,'leng':leng,'leng2':leng2,'subno':subno,'addno':addno,'ran10':ran10})
 
 def Detail(request):
     return render(request,'rest/detail.html')

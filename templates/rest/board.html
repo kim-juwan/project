@@ -34,21 +34,50 @@
         </tr>
         {% endfor %}
 
-        <tr>
+
+
+
+
+</table>
+<nav style='width:auto;'>
+        <ul class="pagination">
+                <li class="page-item">
+                        {% if no != 1 %}
+                        <a class="page-link" href="?no={{subno}}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                        </a>
+                        {% endif %}
+                </li>
                 <ul class="pagination">
-                        {% for i in leng %}
+                        
+                        {% for i in ran10 %}
+                        
                         {% if no == i %}
                         <li class="page-item active" aria-current="page"><span class="page-link">{{i}}<span
                                                 class="sr-only"></span></span></li>
                         {% else %}
                         <li class="page-item"><a class="page-link" href="?no={{i}}">{{i}}</a></li>
                         {% endif %}
+
+                        
+                        
+
                         {% endfor %}
+                        
                 </ul>
-        </tr>
 
-</table>
+                <li class="page-item">
+                        {% if no != leng %}
+                        <a class="page-link" href="?no={{addno}}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
 
+
+                        </a>
+                        {% endif %}
+                </li>
+
+
+</nav>
 
 
 
