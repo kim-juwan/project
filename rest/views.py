@@ -4,6 +4,7 @@ from django.http import HttpResponse
 import cx_Oracle as oci
 from django.db import connection
 from . import models
+from base64 import b64encode
 
 
 
@@ -41,8 +42,42 @@ def Board(request):
 
 
     subno = no-1 
-    addno = no +1    
-    return render(request,'rest/board.html',{'asc_data':data,'no':no,'leng':ran[1],'subno':subno,'addno':addno,'ran10':ran[0]})
+    addno = no +1
+    
+    # for i in range(0,row):
+    #     if data[i][9]:
+    #         image.append(b64encode(data[i][9].read()).decode("utf-8"))
+    #     else :
+    #         file = open("static/icon/sashimi.png","rb")
+    #         image.append(b64encode(file.read()).decode("utf-8"))
+    image = []
+    new_data = []
+    # print(data)
+
+    for img in data:
+        name = img[2]
+        addr = img[1]
+        c = img[4]
+        d = img[8]
+        
+        if img[9]:
+            idata = img[9].read()  
+            image = b64encode(idata).decode("utf-8")
+        else :
+            file = open("static/icon/sashimi.png","rb")
+            idata = file.read()
+            image = b64encode(idata).decode("utf-8")
+        
+        
+        img2 = [name,addr,c,d,image]
+        
+        
+        new_data.append(img2)
+        
+        
+    # print(new_data)
+    ran20 = enumerate(data)
+    return render(request,'rest/board.html',{'asc_data':new_data,'no':no,'leng':ran[1],'subno':subno,'addno':addno,'ran10':ran[0],'ran20':ran20,'image':image})
 
 def Detail(request):
     return render(request,'rest/detail.html')

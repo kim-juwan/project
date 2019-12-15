@@ -23,15 +23,20 @@
                 <td>REST_CATE</td>
                 <td>REST_DIST</td>
         </tr>
+        
         {% for data in asc_data %}
+        
         <tr height="180" align='center'>
-                <td><img src="\static\icon\sashimi.png"></td>
-                <td>{{data.2}}</td>
+                
+                <td ><img src="data:;base64,{{data.4}}" width='130px' height='130px'/></td>
+                
+                <td>{{data.0}}</td>
                 <td>{{data.1}}</td>
-                <td>{{data.4}}</td>
-                <td>{{data.8}}m</td>
-
+                <td>{{data.2}}</td>
+                <td>{{data.3}}m</td>
+        
         </tr>
+        
         {% endfor %}
 
 
@@ -39,6 +44,7 @@
 
 
 </table>
+
 <nav>
         <ul class="pagination">
                 <li class="page-item">
