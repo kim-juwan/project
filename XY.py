@@ -6,12 +6,12 @@ import cx_Oracle as oci
 
 conn = oci.connect('admin/1234@192.168.99.100:32764/xe',encoding='utf-8')
 cursor = conn.cursor()
-XY_sql = 'SELECT NAME, LAT, LNG FROM REST'
+XY_sql = 'SELECT ID, LAT, LNG FROM REST'
 cursor.execute(XY_sql)
 rows = cursor.fetchall()
 
 for row in rows:
-    name = row[0]
+    id = row[0]
     y = row[1]
     x = row[2]
     
@@ -21,8 +21,8 @@ for row in rows:
     res = requests.get(open_api, headers={'Authorization' : 'KakaoAK ' + api_key } )
     dic1 = res.json()
 
-    xy = [int(dic1['documents'][0]['x']), int(dic1['documents'][0]['y']), name]
-    cong_sql = 'UPDATE REST SET XCONG=:1, YCONG=:2 WHERE NAME=:3'
+    xy = [int(dic1['documents'][0]['x']), int(dic1['documents'][0]['y']), id]
+    cong_sql = 'UPDATE REST SET XCONG=:1, YCONG=:2 WHERE ID=:3'
     cursor.execute(cong_sql, xy)
     print(xy)
 print('끝')

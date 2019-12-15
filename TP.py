@@ -255,9 +255,11 @@ chrome_options.add_argument('disable-gpu') # 가속 사용 x
 chrome_options.add_argument('lang=ko_KR') # 가짜 플러그인 탑재
 
 cursor = conn.cursor()
-id_sql = 'SELECT ID FROM REST'
-cursor.execute(id_sql)
-rows = cursor.fetchall()
+# id_sql = 'SELECT ID FROM REST'
+# cursor.execute(id_sql)
+# rows = cursor.fetchall()
+f = open('database1.csv','r',encoding='utf-8')
+rows = csv.reader(f)
 
 for row in rows:
     # row = list(row)
@@ -358,16 +360,16 @@ for row in rows:
     except:
         pass
     try:
-        tr_menu = [(menu4 +' | '+ menu5 +' | '+ menu6).strip(' | '), name]
-        week_sql = 'UPDATE REST SET MENU=:1 WHERE NAME=:2'
+        tr_menu = [(menu4 +' | '+ menu5 +' | '+ menu6).strip(' | '), row[0]]
+        week_sql = 'UPDATE REST SET MENU=:1 WHERE ID=:2'
         cursor.execute(week_sql, tr_menu)
         print(tr_menu)
     except:
         pass
     
     try:
-        tr_week = [week4, name]
-        week_sql = 'UPDATE REST SET WEEK=:1 WHERE NAME=:2'
+        tr_week = [week4, row[0]]
+        week_sql = 'UPDATE REST SET WEEK=:1 WHERE ID=:2'
         cursor.execute(week_sql, tr_week)
         print(tr_week)
 
@@ -375,8 +377,8 @@ for row in rows:
         pass
 
     try:
-        tr_img = [img, name]
-        img_sql = 'UPDATE REST SET IMAGE=:1 WHERE NAME=:2'
+        tr_img = [img, row[0]]
+        img_sql = 'UPDATE REST SET IMAGE=:1 WHERE ID=:2'
         cursor.execute(img_sql, tr_img)
         # print(img)
     except:
@@ -386,4 +388,3 @@ for row in rows:
     
     conn.commit()
     driver.quit()
-# https://map.kakao.com/?map_type=TYPE_MAP&target=walk&rt=,,,&rt1=부곡푸르지오&rt2=일송면옥&rtIds=,22375345
