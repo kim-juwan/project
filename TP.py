@@ -265,12 +265,12 @@ for row in rows:
     url = 'https://place.map.kakao.com/'+str(row[0])
 
     driver.get(url)
-    time.sleep(3)
+    time.sleep(3) #데이터 뜰때까지 기다려주는 시간
     soup = BeautifulSoup(driver.page_source, 'lxml')
     name = soup.find('h2',class_='tit_location').text
     week_list = []
-    print(name)
-    if soup.find('strong',class_='tit_operation') is not None:
+    print(name) 
+    if soup.find('strong',class_='tit_operation') is not None:  #영업시간 가져오는..
         if soup.find('div', class_= 'fold_contact') is None:
             week1 = soup.find('strong',class_='tit_operation').text.split('\n')[0]
             week_list.append(week1)
@@ -284,7 +284,7 @@ for row in rows:
     if len(week_list) > 1 :
         week4 = str(week_list[0])
         for i in range(1, len(week_list)):
-            week4 += (' '+str(week_list[i]))
+            week4 += (' '+str(week_list[i])) ##영업시간 가져오는
     # week4 = ' '.join(week_list)
     menu3 = []
     menu4 = ''
