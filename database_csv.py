@@ -36,7 +36,12 @@ for dict1 in lists:
             for result in results:
                 name = result['place_name']    
                 address = result['road_address_name']
-                category = result['category_name']
+                try:
+                    category = result['category_name'].split('>')[1]
+                    category = category.strip()
+                except:
+                    category = '기타'
+
                 phone = result['phone']
                 distance = int(result['distance'])
                 url = result['place_url']
