@@ -3,7 +3,7 @@ import cx_Oracle as oci
 # Create your models here.
 from django.db import connection
 import random
-
+from base64 import b64encode
 
 class Database():
     ## 오름차순 정렬로 데이터 베이스에서 가져오기
@@ -64,3 +64,30 @@ class Func(Database):
         if  (((page-1)*10)+1) <= no <= leng+1:
             ran10 = range((((page-1)*10)+1),leng+1)
         return [ran10,leng]
+    def Image_Data(self,data):
+        image = []
+        new_data = []
+        
+
+        for img in data:
+            name = img[2]
+            addr = img[1]
+            cate = img[4]
+            dist = img[8]
+            idno = img[0]
+
+            if img[9]:
+                idata = img[9].read()  
+                image = b64encode(idata).decode("utf-8")
+            else :
+                file = open("static/icon/sashimi.png","rb")
+                idata = file.read()
+                image = b64encode(idata).decode("utf-8")
+            
+            
+            img2 = [name,addr,cate,dist,image,idno]
+            
+            
+            new_data.append(img2)
+        return new_data
+        

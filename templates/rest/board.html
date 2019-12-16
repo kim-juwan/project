@@ -42,8 +42,8 @@
                         </tr>
                         {% for data in asc_data %}
                         <tr height="180" align='center'>
-                                <td ><img src="data:;base64,{{data.4}}" width='130px' height='130px'/></td>
-                                <td>{{data.0}}</td>
+                                <td ><a href="detail?idno={{data.5}}"><img src="data:;base64,{{data.4}}" width='130px' height='130px'/></a></td>
+                                <td><a href="detail?idno={{data.5}}">{{data.0}}</a></td>
                                 <td>{{data.1}}</td>
                                 <td>{{data.2}}</td>
                                 <td>{{data.3}}m</td>
