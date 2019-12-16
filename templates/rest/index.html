@@ -1,6 +1,5 @@
 <!doctype html>
 {% extends 'rest/base.html' %}
-
 {% block content %}
 <html lang="en">
 
@@ -12,93 +11,93 @@
   <link rel='icon' type='image/png' sizes='16x16' href='/static/icon/menu.png'>
   <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body {
-      /* background-color: rgb(204, 185, 185); */
-      /* background-image: url('/Users/admin/Documents/GitHub/project/static/icon/두루치기.jpg'); */
-    }
+
   </style>
 </head>
 
 <body>
-    <table style='width:100%;' >
-        <td style='width:25%; text-align: center;'>
-        &nbsp;<img src="\static\icon\sashimi.png"><br><br>
-        &nbsp;<img src="\static\icon\burger.png"><br><br>
-        &nbsp;<img src="\static\icon\bibimbap.png"><br><br>
-        &nbsp;<img src="\static\icon\kimchi.png"><br><br>
-        &nbsp;<img src="\static\icon\rice.png"><br/><br>
-        &nbsp;<img src="\static\icon\noodles.png">
+  <table style='width:100%;'>
+    <td style='width:25%; text-align: center;'>
+      &nbsp;<img src="\static\icon\sashimi.png"><br><br>
+      &nbsp;<img src="\static\icon\burger.png"><br><br>
+      &nbsp;<img src="\static\icon\bibimbap.png"><br><br>
+      &nbsp;<img src="\static\icon\kimchi.png"><br><br>
+      &nbsp;<img src="\static\icon\rice.png"><br /><br>
+      &nbsp;<img src="\static\icon\noodles.png">
     </td>
     <td>
-<div class="text-center">
-  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="masthead mb-auto">
-      <div class="inner">
-        <font size="50em" face="바탕" color="Black">R . I . P <br>Restaurant&nbsp; In&nbsp; Program</font><br>
-        
-        <div>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="text-center">
+        <dv class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+          <header class="masthead mb-auto">
+            <div class="inner">
+              <font size="50em" face="Comic Sans MS" color="Black">R . I . P <br>Restaurant&nbsp; In&nbsp; Program
+              </font><br>
+
+              <div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
-          </div>
-        </div>
-        <div class='container'>
-          <div style='margin-top:30px'>
+                </div>
+              </div>
+              <div class='container'>
+                <div style='margin-top:30px'>
 
-          </div>
-        </div>
-      </div>
-    </header>
-    <main role="main" class="inner cover">
-      <div style='margin-top:40px;'>
-      </div>
-      <p class="lead">
-        <div class='container' width='600px' >
-            <img type='image/png' width="60" height="60" src='/static/icon/menu2.png'/>&nbsp;
-            <font size="30em" face="" color="Black" >주요기능</font>
-            <img type='image/png' width="60" height="60" src='/static/icon/menu2.png'/>&nbsp;<br>
-            <div style='margin-top:40px'></div>
-          <button class='btn btn-outline-dark' onclick="location.href='/rest/board'">리스트</button>
-          <button class='btn btn-outline-dark'>부산대 주변 모든 음식점을 보실 수 있습니다.</button>
-          <div style='margin-top:50px'></div>
-          <button class='btn btn-outline-dark' onclick="location.href='/rest/search'">필터링</button>
-          <button class='btn btn-outline-dark'>식당 카테고리와 거리를 선택할 수 있습니다.</button>
-          <div style='margin-top:150px'></div></div>
+                </div>
+              </div>
+            </div>
+          </header>
+          <main role="main" class="inner cover">
+            <div style='margin-top:40px;'>
+            </div>
+            <p class="lead">
+              <div class='container' width='600px'>
+                <img type='image/png' width="60" height="60" src='/static/icon/menu2.png' />&nbsp;
+                <font size="30em" face="바탕" color="Black">주요기능</font>
+                <img type='image/png' width="60" height="60" src='/static/icon/menu2.png' />&nbsp;<br>
+                <div style='margin-top:40px'></div>
+                <button class='btn btn-outline-dark' onclick="location.href='/rest/board'">리스트</button>
+                <button class='btn btn-outline-dark'>부산대 주변 모든 음식점을 보실 수 있습니다.</button>
+                <div style='margin-top:50px'></div>
+                <button class='btn btn-outline-dark' onclick="location.href='/rest/search'">필터링</button>
+                <button class='btn btn-outline-dark'>식당 카테고리와 거리를 선택할 수 있습니다.</button>
+                <div style='margin-top:150px'></div>
+              </div>
+              <div>
+
+                <div>
+                  <table style="width:100%">
+                    <tr>
+                      {% for data in rand_data %}
+                      <td style="width:20%"><a href="detail?idno={{data.5}}"><img src="data:;base64,{{data.4}}"
+                            width='130px' height='130px'><br /><br><button
+                            class='btn btn-outline-dark'>{{data.0}}</button></a></td>
+
+                      {% endfor %}
+
+
+                    </tr>
+                  </table>
+                </div>
+              </div>
+
+            </p>
+          </main>
           <div>
-          <!-- <a href="https://www.google.com/search?sxsrf=ACYBGNQwGHCR88DUXarzwLova0DaFfyQ9w:1576212469927&q=%EA%B3%A0%EB%B4%89%EA%B9%80%EB%B0%A5+%EB%B6%80%EC%82%B0%EB%8C%80%EC%97%AD&npsic=0&rflfq=1&rlha=0&rllag=35234102,129089877,584&tbm=lcl&ved=2ahUKEwjZ8fCC6bHmAhVhG6YKHRkHC-AQtgN6BAgLEAQ&tbs=lrf:!3sIAE,lf:1,lf_ui:4&rldoc=1">
-            <img src="\static\icon\sashimi.png"></a>&nbsp;&nbsp;&nbsp;
-          <a href="https://www.google.com/search?tbm=lcl&sxsrf=ACYBGNTCnh1XdsDGjlxh1xw0zm6KjXZJBQ%3A1576212473795&ei=-RfzXbeGMMmRr7wPweeEiA4&q=%EB%A7%98%EC%8A%A4%ED%84%B0%EC%B9%98+%EB%B6%80%EC%82%B0%EB%8C%80%EC%A0%90&oq=%EB%A7%98%EC%8A%A4%ED%84%B0%EC%B9%98+%EB%B6%80%EC%82%B0%EB%8C%80%EC%A0%90&gs_l=psy-ab.3...44495.51585.0.51788.22.14.0.0.0.0.265.1540.0j7j2.10.0....0...1c.1j4.64.psy-ab..18.4.680.10..0j35i39k1j0i20i263k1j0i131k1j35i362i39k1j0i67k1.139.Drsy_yx1Smc">
-            <img src="\static\icon\burger.png"></a>&nbsp;&nbsp;&nbsp;
-          <a href="https://www.google.com/maps/dir/35.1250512,129.0398118/%EC%BD%94%ED%95%98%EB%A3%A8/@35.2261571,129.0840031,15.5z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x356893eb815b9ead:0x20bd154168b6eb59!2m2!1d129.0874216!2d35.231994">
-            <img src="\static\icon\bibimbap.png"></a>&nbsp;&nbsp;&nbsp;
-          <a href="board"><img src="\static\icon\kimchi.png"></a>&nbsp;&nbsp;&nbsp; -->
-          <!-- <td ><img src="data:;base64,{{data.4}}" width='130px' height='130px'/></td> -->
-          <div><table style="width:100%"><tr>
-          {% for data in rand_data %}
-            <td style="width:20%"><a href="detail?idno={{data.5}}"><img src="data:;base64,{{data.4}}" width='130px' height='130px'><br/>{{data.0}}</a></td>
-            
-          {% endfor %}
-          
-          
-        </tr></table></div>
-        </div>
-
-      </p>
-    </main>
-    <div>
-    </div>
-    </footer>
-  </div>
-</div>
-</td>
-<td style='width:25%; text-align: center;'>
-    &nbsp;<img src="\static\icon\rice.png"><br/><br>
-    &nbsp;<img src="\static\icon\spaghetti.png"><br/><br>
-    &nbsp;<img src="\static\icon\taco.png"><br/><br>
-    &nbsp;<img src="\static\icon\takoyaki.png"><br/><br>
-    &nbsp;<img src="\static\icon\tempura.png"><br/><br>
-    &nbsp;<img src="\static\icon\onigiri.png">
-</td>
+          </div>
+          </footer>
+      </div>
+      </div>
+    </td>
+    <td style='width:25%; text-align: center;'>
+      &nbsp;<img src="\static\icon\rice.png"><br /><br>
+      &nbsp;<img src="\static\icon\spaghetti.png"><br /><br>
+      &nbsp;<img src="\static\icon\taco.png"><br /><br>
+      &nbsp;<img src="\static\icon\takoyaki.png"><br /><br>
+      &nbsp;<img src="\static\icon\tempura.png"><br /><br>
+      &nbsp;<img src="\static\icon\onigiri.png">
+    </td>
+    </table>
 </body>
-</html>
 {% endblock %}
+
+</html>

@@ -2,54 +2,59 @@
 {% extends 'rest/base.html' %}
 {% block content %}
 <body>
+
     <table style='width:100%;' >
-        <td style='width:25%; text-align: center;'>
+        <!-- <td style='width:25%; text-align: center;'>
         &nbsp;<img src="\static\icon\sashimi.png"><br><br>
         &nbsp;<img src="\static\icon\burger.png"><br><br>
         &nbsp;<img src="\static\icon\bibimbap.png"><br><br>
-        &nbsp;<img src="\static\icon\kimchi.png"><br><br>
-        &nbsp;<img src="\static\icon\rice.png"><br/><br>
         &nbsp;<img src="\static\icon\noodles.png">
-    </td>
+    </td> -->
   </td>
   <td>
   <div class="text-center" >
       <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="masthead mb-auto">
           
-            <div class="title">
-              <font size="50em" face="바탕" color="Black">R . I . P <br>Restaurant&nbsp; In&nbsp; Program</font><br>
-            </div>
+          <div id="logo">
+            <font size='10' color="navy">R &nbsp;. &nbsp;I &nbsp;. &nbsp;P</font>
+            <div style="margin-top: 10px;"></div>
+            <h3 style="color: navy;">Restaurant &nbsp;&nbsp;&nbsp;&nbsp;In &nbsp;&nbsp;&nbsp;&nbsp;Program</h3>
+            <div style='margin-top:30px'></div>
+
+			<div id="menu">
+				<ul>
+					<li><a href="index"><font size='4' color="navy">R I P 만의 기능</font></a></li>
+					<li><a href="board"><font size='4' color="navy">부대 모든 음식점</font></a></li>
+					<li><a href="search"><font size='4' color="navy">직접검색</font></a></li>
+				</ul>
+			</div>
+		</div>
             
           
         </header>
     
-        <h3 class="cover-heading" style='margin-top:30px'>환영합니다!</h3>
-        <p class="lead"><img src="\static\icon\rice.png" width="60px" height="60px">&nbsp; 여러분의 점심시간을 한층 여유롭게 만들어줄 사이트입니다! &nbsp;<img src="\static\icon\rice.png" width="60px" height="60px"></p>
+        
         <p class="lead">
           <div class='container' width='600px' style='margin-top:20px'>
     
     
             <!-- <img src="/static/icon/menu1.png" onclick="location.href='/rest/index'"> -->
-            <img src="/static/icon/menu1.png" onclick="location.href='/rest/index'">
-            
+            <img src="/static/icon/menu1.png" width="370px" height="370px" onclick="location.href='/rest/index'">
+            <h3 class="cover-heading" style='margin-top:50px; color:navy'>Welcome to R I P</h3>
+            <p class="lead" style="color: navy;"><img src="\static\icon\onigiri.png" width="60px" height="60px" >&nbsp;&nbsp; 여러분의 점심시간을 한층 여유롭게 만들어줄 사이트입니다! &nbsp;&nbsp;<img src="\static\icon\onigiri.png" width="60px" height="60px"></p>
           </div>
           
         </p>
         </main>
-          <div class="inner">
-              <button class='btn btn-outline-dark' onclick="location.href='/rest/index'">페이지 둘러보기</button>
-          </div>
       </div>
     </td>
-  <td style='width:25%; text-align: center;'>
+  <!-- <td style='width:25%; text-align: center;'>
           &nbsp;<img src="\static\icon\rice.png"><br/><br>
           &nbsp;<img src="\static\icon\spaghetti.png"><br/><br>
           &nbsp;<img src="\static\icon\taco.png"><br/><br>
-          &nbsp;<img src="\static\icon\takoyaki.png"><br/><br>
-          &nbsp;<img src="\static\icon\tempura.png"><br/><br>
           &nbsp;<img src="\static\icon\onigiri.png">
-  </td>
+  </td> -->
 </table>
 
 </div>
