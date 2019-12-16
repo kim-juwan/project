@@ -135,3 +135,9 @@ class Func(Database):
         if  (((page-1)*10)+1) <= no <= leng+1:
             ran10 = range((((page-1)*10)+1),leng+1)
         return [ran10,leng]
+    def Menu_Encoder(self,data):
+        if data[10] is not None:
+            menu = data[10].read().split('|')
+        else :
+            menu = ['등록된 메뉴 정보가 없습니다.']
+        return menu
