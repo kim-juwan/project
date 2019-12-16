@@ -55,25 +55,24 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="home" style="color:black; font-style: Comic Sans MS;"><strong>홈화면</strong><span class="sr-only">(current)</span></a>
+            <button class="btn btn-outline-dark"><a href="home" style="color:black; font-style: Comic Sans MS;"><strong>홈화면</strong></a></button>&nbsp;
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index" style="color: black;" face='Comic Sans MS'><strong>기능</strong></a>
+            <button class="btn btn-outline-dark"><a href="index" style="color: black;" face='Comic Sans MS'><strong>기능</strong></button class="btn btn-outline-dark">&nbsp;
           </li>
           <li class="nav-item">
-            
-            <a class="nav-link" href="board?no=1&search_word=&cate0=한식&cate1=중식&cate2=양식&cate3=일식&cate4=간식&cate5=도시락&cate6=분식&cate7=뷔페&cate8=아시아음식&cate9=술집&cate10=치킨&cate11=패밀리레스토랑&cate12=패스트푸트&cate13=퓨전요리&cate14=카페&distance=1000" style="color:black;"><strong>목록</strong></a>
+            <button class='btn btn-outline-dark'><a href="board?no=1&search_word=&cate0=한식&cate1=중식&cate2=양식&cate3=일식&cate4=간식&cate5=도시락&cate6=분식&cate7=뷔페&cate8=아시아음식&cate9=술집&cate10=치킨&cate11=패밀리레스토랑&cate12=패스트푸트&cate13=퓨전요리&cate14=카페&distance=1000" style="color:black;"><strong>목록</strong></a></button class='btn-outline-info'>&nbsp;
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="search" style="color: black;" face='Comic Sans MS'><strong>검색</strong></a>
+            <button class="btn btn-outline-dark"><a href="search" style="color: black;" face='Comic Sans MS'><strong>검색</strong></a></button>
           </li>
         </ul>
       </div>
 
 
       <form class="form-inline my-2 my-lg-0" action="board" method="GET">
-        <input class="form-control mr-0" type="text" name='search_word' face='Comic Sans MS' placeholder="음식점을 입력하세요" aria-label="Search">
-        <button type="submit" face='Comic Sans MS' class="btn btn-light">검색</button>
+        <input class="btn btn-outline-dark" type="text" name='search_word' face='Comic Sans MS' placeholder="음식점을 입력하세요" aria-label="Search">&nbsp;
+        <button class='btn btn-dark' type="submit" face='Comic Sans MS' class="btn btn-light">검색</button>
         
       </form>
     </nav>
