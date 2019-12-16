@@ -41,7 +41,11 @@ def Board(request):
     data = model.Word_Search(search_word,no,row)
     # 페이지 나누는 함수
     ran = func.Pagination(no,row,data,search_word)
-
+    cate = []
+    for i in range(15):
+        cate.append(request.GET.get(f'cate[{i}]',''))
+    cate.append(request.GET.get('distance',''))
+    print(cate)
 
     subno = no-1 
     addno = no +1
@@ -55,9 +59,14 @@ def Board(request):
     return render(request,'rest/board.html',{'asc_data':new_data,'no':no,'leng':ran[1],'subno':subno,'addno':addno,'ran10':ran[0],'search_word':search_word})
 
 def Detail(request):
-    return render(request,'rest/detail.html')
+    idno = request.GET.get('idno')
+    data = model.Select_One(idno)
+    image = func.Image_Encoder(data)
+    
+    return render(request,'rest/detail.html',{'data':data,'image':image})
 
 def Search(request):
+    
     return render(request,'rest/search.html')
 
 @csrf_exempt
