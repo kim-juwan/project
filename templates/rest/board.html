@@ -5,11 +5,7 @@
 
 <table style='width:100%;'>
         <td align= 'center'>
-                <style>
-                        table {
-                                border: 2px solid black
-                        }
-                </style>
+
                 <div class='container' align='center' style='margin-top:20px'>
                         <font size="50em" face='Comic Sans MS' color="Black">R . I . P <br><img type='image/png' width="60"
                                         height="60" src='/static/icon/menu2.png' />&nbsp;Restaurant&nbsp; In&nbsp;
@@ -19,14 +15,17 @@
                 <!-- <button class='btn btn-outline-dark' onclick="location.href='/rest/search'">필터링</button> -->
           
                 <div style='margin-top:20px'></div>
-
-                <table border="1px" width="auto" height="350" align="center">
-                        <tr align="center" style="border: 2px; color: black;">
-                                <td style="border: 3px; color: black;" width="140">이미지</td>
-                                <td style="border: 2px; color: black;" width="140">식당명</td>
-                                <td style="border: 2px; color: black;" width="140">주소</td>
-                                <td style="border: 2px; color: black;" width="140">카테고리</td>
-                                <td style="border: 2px; color: black;" width="140">거리</td>
+                <style>  
+                        .mytable { border-collapse:collapse; }  
+                        .mytable th, .mytable tr, .mytable td { border:2px solid black; }
+                        </style>
+                <table class='mytable' border="1px" width="auto" height="350" align="center">
+                        <tr align="center" style="color: black;">
+                                <td width="140">이미지</td>
+                                <td width="140">식당명</td>
+                                <td width="140">주소</td>
+                                <td width="140">카테고리</td>
+                                <td width="140">거리</td>
                         </tr>
                         {% for data in asc_data %}
                         <tr width="auto" height="180" align='center'>
