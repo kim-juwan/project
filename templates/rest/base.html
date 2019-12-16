@@ -10,9 +10,9 @@
   <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
   <link rel='icon' type='image/png' sizes='16x16' href='/static/icon/menu.png'>
   <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/cover/">
-  <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial" rel="stylesheet" />
-  <link href="/static/css/default.css" rel="stylesheet" type="text/css" media="all" />
-  <link href="/static/css/fonts.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial"
+    rel="stylesheet" />
+
   <title>R.I.P</title>
 
   <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
@@ -35,49 +35,248 @@
         font-size: 3.5rem;
       }
     }
-    body{
-      background-image: url("/static/icon/배경사진.png");
-      background-size: cover;
-      background-repeat: no-repeat;
-      
+
+    body {
+      /* background-image: url("/static/icon/배경사진.png"); */
+      /* background-size: cover; */
+      /* background-repeat: no-repeat; */
+      background-color: #ffffff;
     }
+
+    @font-face {
+      font-family: 'Nanum Pen Script';
+      font-weight: 400;
+      src: url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+
+    }
+
+    @font-face {
+      font-family: 'Cookie';
+      src: url('/static/font/CookieRun Regular.ttf')
+    }
+
+    .inner {
+      padding: 0 6em 0.1em 6em;
+      margin: 0 auto;
+      max-width: 110em;
+    }
+
+    #header {
+
+      border-bottom: solid 5px #f56a6a;
+
+      position: relative;
+
+    }
+
+    #header .logo {
+      border-bottom: 0;
+      color: inherit;
+      font-family: "Roboto Slab", serif;
+      font-size: 1.125em;
+    }
+
+    .btn-default {
+      color: #fff;
+      background-color: #fff;
+      border-color: #ffffff
+    }
+
+    .btn-default:hover {
+      color: #fff;
+      background-color: #ffffff;
+      border-color: #f56a6a
+    }
+
+    .btn-default.focus,
+    .btn-default:focus {
+      box-shadow: 0 0 0 .2rem #f56a6a
+    }
+
+    .btn-default.disabled,
+    .btn-default:disabled {
+      color: #fff;
+      background-color: #f56a6a;
+      border-color: #f56a6a
+    }
+
+    .btn-default:not(:disabled):not(.disabled).active,
+    .btn-default:not(:disabled):not(.disabled):active,
+    .show>.btn-default.dropdown-toggle {
+      color: #fff;
+      background-color: #f56a6a;
+      border-color: #f56a6a
+    }
+
+    .btn-default:not(:disabled):not(.disabled).active:focus,
+    .btn-default:not(:disabled):not(.disabled):active:focus,
+    .show>.btn-default.dropdown-toggle:focus {
+      box-shadow: 0 0 0 .2rem #f56a6a
+    }
+
+    .btn-input {
+      color: #fff;
+      background-color: #fff;
+      border-color: #ffffff
+    }
+
+    .btn-input:hover {
+      color: #fff;
+      background-color: #ffffff;
+      border-color: #f56a6a
+    }
+
+    .btn-input.focus,
+    .btn-input:focus {
+      box-shadow: 0 0 0 .2rem #f56a6a
+    }
+
+    .btn-input.disabled,
+    .btn-input:disabled {
+      color: #fff;
+      background-color: #f56a6a;
+      border-color: #f56a6a
+    }
+
+    .btn-input:not(:disabled):not(.disabled).active,
+    .btn-input:not(:disabled):not(.disabled):active,
+    .show>.btn-input.dropdown-toggle {
+      color: #fff;
+      background-color: #f56a6a;
+      border-color: #f56a6a
+    }
+
+    .btn-input:not(:disabled):not(.disabled).active:focus,
+    .btn-input:not(:disabled):not(.disabled):active:focus,
+    .show>.btn-input.dropdown-toggle:focus {
+      box-shadow: 0 0 0 .2rem #f56a6a
+    }
+
+    .btn-white {
+      color: #fff;
+      background-color: #fff;
+      border-color: #ffffff
+    }
+
+    .btn-white:hover {
+      color: #fff;
+      background-color: #ffffff;
+      border-color: #ffffff
+    }
+
+    .btn-white.focus,
+    .btn-white:focus {
+      box-shadow: 0 0 0 .2rem #ffffff
+    }
+
+    .btn-white.disabled,
+    .btn-white:disabled {
+      color: #fff;
+      background-color: #ffffff;
+      border-color: #ffffff
+    }
+
+    .btn-white:not(:disabled):not(.disabled).active,
+    .btn-white:not(:disabled):not(.disabled):active,
+    .show>.btn-white.dropdown-toggle {
+      color: #fff;
+      background-color: #ffffff;
+      border-color: #ffffff
+    }
+
+    .btn-white:not(:disabled):not(.disabled).active:focus,
+    .btn-white:not(:disabled):not(.disabled):active:focus,
+    .show>.btn-white.dropdown-toggle:focus {
+      box-shadow: 0 0 0 .2rem #ffffff
+    }
+
+    .underline {
+      color: #7F888F
+    }
+
+    .underline:hover {
+      text-decoration: underline;
+      text-underline-position: under;
+      font-weight: bold;
+      color: #f56a6a
+    }
+
+    .mytable {
+      border-collapse: collapse;
+    }
+    .mytable table,
+    .mytable th,
+    .mytable tr,
+    .mytable td {
+      border: 2px solid #f56a6a;
+    }
+    select {
+
+background: url('/static/icon/down-arrow.png') no-repeat 95% 50%;
+width: 300px;
+padding: .8em .5em;
+border: 2px solid #f56a6a;
+font-family: comic sans ms;
+border-radius: 0px;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+}
+.checks {position: relative;} .checks input[type="checkbox"] { /* 실제 체크박스는 화면에서 숨김 */ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0 } .checks input[type="checkbox"] + label { display: inline-block; position: relative; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; } .checks input[type="checkbox"] + label:before { /* 가짜 체크박스 */ content: ' '; display: inline-block; width: 21px; /* 체크박스의 너비를 지정 */ height: 21px; /* 체크박스의 높이를 지정 */ line-height: 21px; /* 세로정렬을 위해 높이값과 일치 */ margin: -2px 8px 0 0; text-align: center; vertical-align: middle; background: #fafafa; border: 1px solid #cacece; border-radius : 3px; box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05); } .checks input[type="checkbox"] + label:active:before, .checks input[type="checkbox"]:checked + label:active:before { box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1); }
+
+
+
+
   </style>
-  <!-- Custom styles for this template -->
-  <link href="cover.css" rel="stylesheet">
+
 
 </head>
 
 <body>
-  <div class='container' align='center'>
-    <nav class="navbar navbar-expand navbar-white" >
-      <img type='image/png' width="32" height="32" src='/static/icon/menu2.png'/>
-      <a class="navbar-brand" href="/rest/home" style="margin-left:10px;"><font size='6' face='Comic Sans MS' color='black'><strong>R.I.P</strong></font></a>
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <button class="btn btn-outline-dark"><a href="home" style="color:black; font-style: Comic Sans MS;"><strong>홈화면</strong></a></button>&nbsp;
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-outline-dark"><a href="index" style="color: black;" face='Comic Sans MS'><strong>기능</strong></button class="btn btn-outline-dark">&nbsp;
-          </li>
-          <li class="nav-item">
-            <button class='btn btn-outline-dark'><a href="board?no=1&search_word=&cate0=한식&cate1=중식&cate2=양식&cate3=일식&cate4=간식&cate5=도시락&cate6=분식&cate7=뷔페&cate8=아시아음식&cate9=술집&cate10=치킨&cate11=패밀리레스토랑&cate12=패스트푸트&cate13=퓨전요리&cate14=카페&distance=1000" style="color:black;"><strong>목록</strong></a></button class='btn-outline-info'>&nbsp;
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-outline-dark"><a href="search" style="color: black;" face='Comic Sans MS'><strong>검색</strong></a></button>
-          </li>
-        </ul>
+  <div class='inner'>
+    <header id="header">
+
+      <div class='container' align='center'>
+        <nav class="navbar navbar-expand navbar-white">
+          <img type='image/png' width="32" height="32" src='/static/icon/menu2.png' />
+          <a class="navbar-brand" href="/rest/home"
+            style="margin-left:10px;font-family: 'Comic Sans MS'; font-size: xx-large; color:#3D4449;"><strong>R.I.P</strong></a>
+          <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <button class="btn btn-default" style=' width:75px;'><a href="home"
+                    style="color:#7F888F; font-family: Nanum Pen Script;font-size:x-large;text-decoration:none">홈화면</a></button>&nbsp;
+
+              </li>
+              <li class="nav-item">
+                <button class="btn btn-default" style=' width:75px;'><a href="index"
+                    style="color: #7F888F; font-family: Nanum Pen Script;font-size:x-large;text-decoration:none">기능</button>&nbsp;
+              </li>
+              <li class="nav-item">
+                <button class='btn btn-default' style=' width:75px;'><a
+                    href="board?no=1&search_word=&cate0=한식&cate1=중식&cate2=양식&cate3=일식&cate4=간식&cate5=도시락&cate6=분식&cate7=뷔페&cate8=아시아음식&cate9=술집&cate10=치킨&cate11=패밀리레스토랑&cate12=패스트푸트&cate13=퓨전요리&cate14=카페&distance=1000"
+                    style="color:#7F888F;font-family: Nanum Pen Script;font-size:x-large;text-decoration:none">목록</a></button>&nbsp;
+              </li>
+              <li class="nav-item">
+                <button class="btn btn-default" style=' width:75px;'><a href="search"
+                    style="color: #7F888F;font-family: Nanum Pen Script;font-size:x-large;text-decoration:none">필터링</a></button>
+              </li>
+            </ul>
+          </div>
+
+
+
+          <form class="form-inline my-2 my-lg-0" action="board" method="GET">
+            <input class="btn btn-input" style="color:#3D4449;font-family: Nanum Pen Script;font-size:x-large"
+              type="text" name='search_word' placeholder="음식점을 입력하세요" aria-label="Search">&nbsp;
+            <button class='btn btn-default' type="submit"
+              style="color: #7F888F;font-family: Nanum Pen Script;font-size:x-large; margin-left:10px; text-decoration:none">검색</button>
+
+          </form>
+        </nav>
       </div>
-
-
-      <form class="form-inline my-2 my-lg-0" action="board" method="GET">
-        <input class="btn btn-outline-dark" type="text" name='search_word' face='Comic Sans MS' placeholder="음식점을 입력하세요" aria-label="Search">&nbsp;
-        <button class='btn btn-dark' type="submit" face='Comic Sans MS' class="btn btn-light">검색</button>
-        
-      </form>
-    </nav>
+    </header>
   </div>
   {% block content %}
 
   {% endblock %}
-
