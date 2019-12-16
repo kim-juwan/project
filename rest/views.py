@@ -65,8 +65,12 @@ def Detail(request):
     idno = request.GET.get('idno')
     data = model.Select_One(idno)
     image = func.Image_Encoder(data)
+    if data[10] is not None:
+        menu = data[10].read().split('|')
+    else :
+        menu = ['등록된 메뉴 정보가 없습니다.']
     
-    return render(request,'rest/detail.html',{'data':data,'image':image})
+    return render(request,'rest/detail.html',{'data':data,'image':image, 'menu':menu})
 
 def Search(request):
 

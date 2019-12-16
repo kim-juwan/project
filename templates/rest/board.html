@@ -19,17 +19,17 @@
                         .mytable { border-collapse:collapse; }  
                         .mytable th, .mytable tr, .mytable td { border:2px solid black; }
                         </style>
-                <table class='mytable' border="1px" width="auto" height="350" align="center">
+                <table class='mytable' border="1px" width="80%" height="350" align="center">
                         <tr align="center" style="color: black;">
-                                <td width="140">이미지</td>
-                                <td width="140">식당명</td>
-                                <td width="140">주소</td>
-                                <td width="140">카테고리</td>
-                                <td width="140">거리</td>
+                                <td width="10%">이미지</td>
+                                <td width="25%">식당명</td>
+                                <td width="25%">주소</td>
+                                <td width="10%">카테고리</td>
+                                <td width="10%">거리</td>
                         </tr>
                         {% for data in asc_data %}
                         <tr width="auto" height="180" align='center'>
-                                <td ><a href="detail?idno={{data.5}}" style="color: black;"><img src="data:;base64,{{data.4}}" width='130px' height='130px'/></a></td>
+                                <td ><a href="detail?idno={{data.5}}" style="color: black;"><img src="data:;base64,{{data.4}}" width='150px' height='150px'/></a></td>
                                 <td style="size: 70px;"><a href="detail?idno={{data.5}}" ><font size='5'color= "black">{{data.0}}</font></a></td>
                                 <td style="color: black;">{{data.1}}</td>
                                 <td style="color: black;">{{data.2}}</td>
