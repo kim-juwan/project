@@ -13,6 +13,7 @@
             &nbsp;<img src="\static\icon\rice.png"><br/><br>
             &nbsp;<img src="\static\icon\noodles.png">
         </td>
+        <form class="form-inline my-2 my-lg-0" action="board" method="GET">
         <td style='width:50%; text-align: center; vertical-align:top;'>
                 <img src="\static\icon\삼겹살.jpg" style="width:120px; height:120px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <img src="\static\icon\감자튀김.jpg" style="width:120px; height:120px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -24,57 +25,57 @@
             <button type="button" style="width:370px; height:50px;" class="btn btn-secondary">음식 카테고리를 선택하세요 (복수선택 가능)</button>
             <div style='margin-top:30px'></div>
             <div class='input_chk' style="width:700px"> 
+            
+                <input type="checkbox" name='cate[0]' value='한식' class='chk'>
+                <label for='check' style="font-size:1.2em;">한식</label>&nbsp;&nbsp;
 
-                <input type="checkbox" id='cna' class='chk'required>
-                <label for='check' id='cna' style="font-size:1.2em;">한식</label>&nbsp;&nbsp;
+                <input type="checkbox" name='cate[1]' value='중식' class='chk'>
+                <label for='check' style="font-size:1.2em;">중식</label>&nbsp;&nbsp;
 
-                <input type="checkbox" id='jpn' class='chk'required>
-                <label for='check' id='jpn' style="font-size:1.2em;">중식</label>&nbsp;&nbsp;
+                <input type="checkbox" name='cate[2]' value='양식' class='chk'>
+                <label for='check' style="font-size:1.2em;">양식</label>&nbsp;&nbsp;
 
-                <input type="checkbox" id='ame' class='chk'required>
-                <label for='check' id='jpn' style="font-size:1.2em;">양식</label>&nbsp;&nbsp;
+                <input type="checkbox" name='cate[3]' value='일식' class='chk'>
+                <label for='check' style="font-size:1.2em;">일식</label>
 
-                <input type="checkbox" id='etc' class='chk'required>
-                <label for='check' id='jpn' style="font-size:1.2em;">일식</label>
+                <input type="checkbox" name='cate[4]' value='간식' class='chk'>
+                <label for='check' style="font-size:1.2em;">간식</label><br><br>
 
-                <input type="checkbox" id='etc' class='chk'required>
-                <label for='check' id='jpn' style="font-size:1.2em;">간식</label><br><br>
+                <input type="checkbox" name='cate[5]' value='도시락' class='chk'>
+                <label for='check' style="font-size:1.2em;">도시락</label>
 
-                <input type="checkbox" id='etc' class='chk'required>
-                <label for='check' id='jpn' style="font-size:1.2em;">도시락</label>
+                <input type="checkbox" name='cate[6]' value='분식' class='chk'>
+                <label for='check' style="font-size:1.2em;">분식</label>
 
-                <input type="checkbox" id='etc' class='chk'required>
-                <label for='check' id='jpn' style="font-size:1.2em;">분식</label>
+                <input type="checkbox" name='cate[7]' value='뷔페' class='chk'>
+                <label for='check' style="font-size:1.2em;">뷔페</label>
 
-                <input type="checkbox" id='etc' class='chk'required>
-                <label for='check' id='jpn' style="font-size:1.2em;">뷔페</label>
+                <input type="checkbox" name='cate[8]' value='아시아음식' class='chk'>
+                <label for='check' style="font-size:1.2em;">아시아음식</label><br><br>
 
-                <input type="checkbox" id='etc' class='chk'required>
-                <label for='check' id='jpn' style="font-size:1.2em;">아시아음식</label><br><br>
+                <input type="checkbox" name='cate[9]' value='술집' class='chk'>
+                <label for='check' style="font-size:1.2em;">술집</label>
 
-                <input type="checkbox" id='etc' class='chk'required>
-                <label for='check' id='jpn' style="font-size:1.2em;">술집</label>
+                <input type="checkbox" name='cate[10]' value='치킨' class='chk'>
+                <label for='check' style="font-size:1.2em;">치킨</label>
 
-                <input type="checkbox" id='etc' class='chk'required>
-                <label for='check' id='jpn' style="font-size:1.2em;">치킨</label>
+                <input type="checkbox" name='cate[11]' value='패밀리레스토랑' class='chk'>
+                <label for='check' style="font-size:1.2em;">패밀리레스토랑</label><br><br>
 
-                <input type="checkbox" id='etc' class='chk'required>
-                <label for='check' id='jpn' style="font-size:1.2em;">패밀리 레스토랑</label><br><br>
+                <input type="checkbox" name='cate[12]' value='패스트푸드' class='chk'>
+                <label for='check' style="font-size:1.2em;">패스트푸드</label>
 
-                <input type="checkbox" id='etc' class='chk'required>
-                <label for='check' id='jpn' style="font-size:1.2em;">패스트푸드</label>
+                <input type="checkbox" name='cate[13]' value='퓨전요리' class='chk'>
+                <label for='check' style="font-size:1.2em;">퓨전요리</label>
 
-                <input type="checkbox" id='etc' class='chk'required>
-                <label for='check' id='jpn' style="font-size:1.2em;">퓨전요리</label>
-
-                <input type="checkbox" id='etc' class='chk'required>
-                <label for='check' id='jpn' style="font-size:1.2em;">카페</label>
+                <input type="checkbox" name='cate[14]' value='카페' class='chk'>
+                <label for='check' style="font-size:1.2em;">카페</label>
 
 
             </div>
                 <div style='margin-top:70px'></div>
                 <button type="button" style="width:180px; height:50px;" class="btn btn-secondary">거리를 설정하세요.</button><br>
-                <select name="detail" style="width:80px; margin-top:30px;">
+                <select name="distance" style="width:80px; margin-top:30px;">
                     <option value="100">100m</option>
                     <option value="200">200m</option>
                     <option value="300">300m</option>
@@ -82,7 +83,8 @@
                     <option value="500">500m</option>
                 </select >&nbsp;<br><br>
                 
-                <button class = 'btn btn-outline-dark'  onclick="location.href='/rest/detail'" >통합검색</button> &nbsp;&nbsp;
+                <button class = 'btn btn-outline-dark' type="submit" >통합검색</button> &nbsp;&nbsp;
+            </form>
     </td>
     <td style='width:25%; text-align: center;'>
             &nbsp;<img src="\static\icon\rice.png"><br/><br>

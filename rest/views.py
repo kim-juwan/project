@@ -41,7 +41,11 @@ def Board(request):
     data = model.Word_Search(search_word,no,row)
     # 페이지 나누는 함수
     ran = func.Pagination(no,row,data,search_word)
-
+    cate = []
+    for i in range(15):
+        cate.append(request.GET.get(f'cate[{i}]',''))
+    cate.append(request.GET.get('distance',''))
+    print(cate)
 
     subno = no-1 
     addno = no +1
