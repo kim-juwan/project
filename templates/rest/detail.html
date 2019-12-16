@@ -3,76 +3,129 @@
 
 {% block content %}
 <html lang="en">
+
 <body>
     <div class='container' style='margin-top:20px'>
-    <table class = 'table table-striped' border='3' align="center" style="width: 100%;" >
+        <div >
+        <table class='table table-defalut table-striped table-sm' border='3' align="center" style="width: 100%;">
+            <tr style="color: black; font-style: Comic Sans MS; background-color: rgb(0,0,0,0);border:0 ">
+                <td style='text-align:center;border:0'>
+                    <img src="data:;base64,{{image}}" width="370px" height="370px">
+                </td>
+            </tr>
+            <tr style="color: black; font-style: Comic Sans MS;text-align: center;">
+                <td style='border:0;border-color:rgb(0,0,0,0);'>
+                    <a style="text-align: center;">
+
+                        <a>
+                            <font size="8" face='휴먼편지체' color="Black">
+                                {{data.2}}
+                            </font>
+                        </a>
+
+
+                        <a>
+                            <font size="5" face='휴먼편지체' color="Navy">
+                                {{data.4}}
+                            </font>
+                        </a>
+
+                    </a>
+                </td>
+            </tr>
+            <tr style="color: black; font-style: Comic Sans MS;background-color: rgb(0,0,0,0);">
+                <td style='text-align:center;border:0'>
+                    <a>
+                        <font size='5' face='휴먼편지체' color="Black">
+                            {{data.1}}
+                        </font>
+                    </a>
+                    
+                    <table align='center' class='table table-sm' style="width:50%">
+                        <tr></tr>
+                        <tr>
+                            <td style='border:0'>
+                                <a href='https://map.kakao.com/?itemId={{data.0}}' target="_blank"><img type='image/png'
+                                        width="60" height="60" src='/static/icon/map.png' /></a>
+                            </td>
+                            <td style='border:0'>
+                                <a href='https://map.kakao.com/?map_type=TYPE_MAP&target=walk&rt=975771,486419,{{data.11}},{{data.12}}&rt1=한가람IT&rt2={{data.2}}&rtIds=,{{data.0}}'
+                                    target="_blank"> <img type='image/png' width="60" height="60"
+                                        src='/static/icon/route.png' /></a>
+                            </td>
+                            <td style='border:0'>
+                                <a href='https://map.kakao.com/?srcid={{data.0}}&confirmid={{data.0}}&q={{data.2}}&rv=on'
+                                    target="_blank"><img type='image/png' width="60" height="60"
+                                        src='/static/icon/street-view.png' /></a>
+                            </td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td style='border:0'>
+                                <a href='https://map.kakao.com/?itemId={{data.0}}' face='Comic Sans MS'
+                                    class="btn btn-outline-success" target="_blank">지도보기</button>
+                            </td>
+                            <td style='border:0'>
+                                <a href='https://map.kakao.com/?map_type=TYPE_MAP&target=walk&rt=975771,486419,{{data.11}},{{data.12}}&rt1=한가람IT&rt2={{data.2}}&rtIds=,{{data.0}}'
+                                    face='Comic Sans MS' class="btn btn-outline-primary" target="_blank">길찾기</a>
+                            </td>
+                            <td style='border:0'>
+                                <a href='https://map.kakao.com/?srcid={{data.0}}&confirmid={{data.0}}&q={{data.2}}&rv=on'
+                                    face='Comic Sans MS' class="btn btn-outline-danger" target="_blank">로드뷰</a>
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+                </td>
+            </tr>
+            
+        </table>
+    </div>
         <tr style="color: black; font-style: Comic Sans MS;">
-            <td style='text-align:center;'>
-                <img src="data:;base64,{{image}}" width="370px" height="370px" >
-            </td>
-        </tr>
-        <tr style="color: black; font-style: Comic Sans MS;text-align: center;">
-        <td>
-            <a style="text-align: center;">
-                
-                    <a><font size="7" face='휴먼편지체' color="Black">
-                    {{data.2}}
-                </font></a>
-                
-                
-                    <a><font size="5" face='휴먼편지체' color="Navy">
-                        {{data.4}}
-                    </font></a>
-                
-            </a>
+            <td style='border:0'>
+            <font size="6" face='휴먼편지체' color="Black">
+
+                정보
+            </font>
         </td>
-        </tr>
-        <tr style="color: black; font-style: Comic Sans MS;">
-        <td style='text-align:center;'>
-            <a href = 'https://map.kakao.com/?itemId={{data.0}}' face='Comic Sans MS' class="btn btn-info" target="_blank" >지도보기</button>
-            <a href='https://map.kakao.com/?map_type=TYPE_MAP&target=walk&rt=975771,486419,{{data.11}},{{data.12}}&rt1=한가람IT&rt2={{data.2}}&rtIds=,{{data.0}}' face='Comic Sans MS' class="btn btn-link" target="_blank">길찾기</a>
-            <a href='https://map.kakao.com/?srcid={{data.0}}&confirmid={{data.0}}&q={{data.2}}&rv=on'  face='Comic Sans MS' class="btn btn-link" target="_blank">로드뷰</a>
-        </td>
-        </tr>
-    </table>
-    
-    <table border="6" style="width: 100%;" align="center">
-       
-        <tr  style="color: black;">
-            <td style='text-align:center;'>전화번호</td>
-            {% if data.3 == None %}
-            <td >등록된 번호가 없습니다.</td>
-            {% else %}
-            <td >{{data.3}}</td>
-            {% endif %}
-        </tr>
-        <tr  style="color: black;">
-            <td style='text-align:center;'>주소</td>
-            <td >{{data.1}}<br>
-            <a href = 'https://map.kakao.com/?itemId={{data.0}}' face='Comic Sans MS' class="btn btn-light" target="_blank" style="margin-right:1%">지도보기</button>
-            <a href='https://map.kakao.com/?map_type=TYPE_MAP&target=walk&rt=975771,486419,{{data.11}},{{data.12}}&rt1=한가람IT&rt2={{data.2}}&rtIds=,{{data.0}}' face='Comic Sans MS' class="btn btn-light" target="_blank"style="margin-right:1%">길찾기</a>
-            <a href='https://map.kakao.com/?srcid={{data.0}}&confirmid={{data.0}}&q={{data.2}}&rv=on'  face='Comic Sans MS' class="btn btn-light" target="_blank">로드뷰</a>
+            <tr style="background-color: rgb(0,0,0,0);">
+                <td style='border:0;background-color: rgb(0,0,0,0);'>
+                {{data.3}}
             </td>
+            </tr>
         </tr>
-        <tr  style="color: black;">
-            <td style='text-align:center;'>메뉴</td>
-            <td >
-            {% for tmp in menu %}
-                {{tmp}}<br>
-            {% endfor %}
-            </td>
-        </tr>
-        <tr style="color: black;">
-            <td style='text-align:center;'>영업시간</td>
-            {% if data.7 == None %}
-            <td>등록된 영업시간 정보가 없습니다.</td>
-            {% else %}
-            <td>{{data.7}}</td>
-            {% endif %}
-        </tr>
-        
-    </table>
-</div>
+        <table border="6" style="width: 100%;" align="center">
+
+            <tr style="color: black;">
+                <td style='text-align:center;'>전화번호</td>
+                {% if data.3 == None %}
+                <td>등록된 번호가 없습니다.</td>
+                {% else %}
+                <td>{{data.3}}</td>
+                {% endif %}
+            </tr>
+          
+            <tr style="color: black;">
+                <td style='text-align:center;'>메뉴</td>
+                <td>
+                    {% for tmp in menu %}
+                    {{tmp}}<br>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr style="color: black;">
+                <td style='text-align:center;'>영업시간</td>
+                {% if data.7 == None %}
+                <td>등록된 영업시간 정보가 없습니다.</td>
+                {% else %}
+                <td>{{data.7}}</td>
+                {% endif %}
+            </tr>
+
+        </table>
+    </div>
     <div style='margin-top: 50px;'></div>
 </body>
 
