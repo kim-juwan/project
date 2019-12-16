@@ -59,9 +59,14 @@ def Board(request):
     return render(request,'rest/board.html',{'asc_data':new_data,'no':no,'leng':ran[1],'subno':subno,'addno':addno,'ran10':ran[0],'search_word':search_word})
 
 def Detail(request):
-    return render(request,'rest/detail.html')
+    idno = request.GET.get('idno')
+    data = model.Select_One(idno)
+    image = func.Image_Encoder(data)
+    
+    return render(request,'rest/detail.html',{'data':data,'image':image})
 
 def Search(request):
+    
     return render(request,'rest/search.html')
 
 @csrf_exempt
