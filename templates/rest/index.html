@@ -25,7 +25,7 @@
       &nbsp;<img src="\static\icon\rice.png"><br /><br>
       &nbsp;<img src="\static\icon\noodles.png">
     </td>
-    <td>
+    <td style="vertical-align: top;">
       <div class="text-center">
         <dv class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
           <header class="masthead mb-auto">
@@ -60,15 +60,15 @@
                 <div style='margin-top:50px'></div>
                 <button class='btn btn-outline-dark' onclick="location.href='/rest/search'">필터링</button>
                 <button class='btn btn-outline-dark'>식당 카테고리와 거리를 선택할 수 있습니다.</button>
-                <div style='margin-top:150px'></div>
+                <div style='margin-top:120px'></div>
               </div>
               <div>
 
                 <div>
-                  <table style="width:100%">
-                    <tr>
+                  <table style="width:100%; " >
+                    <tr >
                       {% for data in rand_data %}
-                      <td style="width:20%"><a href="detail?idno={{data.5}}"><img src="data:;base64,{{data.4}}"
+                      <td style="width:20%;vertical-align: top;"><a href="detail?idno={{data.5}}"><img src="data:;base64,{{data.4}}"
                             width='130px' height='130px'><br /><br><button
                             class='btn btn-outline-dark'>{{data.0}}</button></a></td>
 

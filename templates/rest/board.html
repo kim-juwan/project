@@ -7,11 +7,11 @@
         <td align= 'center'>
                 <style>
                         table {
-                                border: 1px solid #ec720d;
+                                border: 2px solid black
                         }
                 </style>
                 <div class='container' align='center' style='margin-top:20px'>
-                        <font size="50em" face="바탕" color="Black">R . I . P <br><img type='image/png' width="60"
+                        <font size="50em" face='Comic Sans MS' color="Black">R . I . P <br><img type='image/png' width="60"
                                         height="60" src='/static/icon/menu2.png' />&nbsp;Restaurant&nbsp; In&nbsp;
                                 Program</font>&nbsp;
                         <img type='image/png' width="60" height="60" src='/static/icon/menu2.png' />&nbsp;
@@ -20,21 +20,21 @@
           
                 <div style='margin-top:20px'></div>
 
-                <table border="1" width="auto" height="350" align="center">
-                        <tr align="center">
-                                <td width="140">이미지</td>
-                                <td>식당명</td>
-                                <td>주소</td>
-                                <td width="80">카테고리</td>
-                                <td width="80">거리</td>
+                <table border="1px" width="auto" height="350" align="center">
+                        <tr align="center" style="border: 2px; color: black;">
+                                <td style="border: 3px; color: black;" width="140">이미지</td>
+                                <td style="border: 2px; color: black;" width="140">식당명</td>
+                                <td style="border: 2px; color: black;" width="140">주소</td>
+                                <td style="border: 2px; color: black;" width="140">카테고리</td>
+                                <td style="border: 2px; color: black;" width="140">거리</td>
                         </tr>
                         {% for data in asc_data %}
-                        <tr height="180" align='center'>
-                                <td ><a href="detail?idno={{data.5}}"><img src="data:;base64,{{data.4}}" width='130px' height='130px'/></a></td>
-                                <td><a href="detail?idno={{data.5}}">{{data.0}}</a></td>
-                                <td>{{data.1}}</td>
-                                <td>{{data.2}}</td>
-                                <td>{{data.3}}m</td>
+                        <tr width="auto" height="180" align='center'>
+                                <td ><a href="detail?idno={{data.5}}" style="color: black;"><img src="data:;base64,{{data.4}}" width='130px' height='130px'/></a></td>
+                                <td style="size: 70px;"><a href="detail?idno={{data.5}}" ><font size='5'color= "black">{{data.0}}</font></a></td>
+                                <td style="color: black;">{{data.1}}</td>
+                                <td style="color: black;">{{data.2}}</td>
+                                <td style="color: black;">{{data.3}}m</td>
 
                         </tr>
                         {% endfor %}
@@ -46,9 +46,9 @@
                 <div style='display: inline-block;margin-top: 20px;'>
                         {% if leng != 0 %}
                                 <ul class="pagination" >
-                                        <li class="page-item">
+                                        <li class="page-item" >
                                                 {% if no != 1 %}
-                                                <a class="page-link" href="?no={{subno}}&search_word={{search_word}}&cate0={{cate.0}}&cate1={{cate.1}}&cate2={{cate.2}}&cate3={{cate.3}}&cate4={{cate.4}}&cate5={{cate.5}}&cate6={{cate.6}}&cate7={{cate.7}}&cate8={{cate.8}}&cate9={{cate.9}}&cate10={{cate.10}}&cate11={{cate.11}}&cate12={{cate.12}}&cate13={{cate.13}}&cate14={{cate.14}}&distance={{cate.15}}" aria-label="Previous">
+                                                <a class="page-link" href="?no={{subno}}&search_word={{search_word}}&cate0={{cate.0}}&cate1={{cate.1}}&cate2={{cate.2}}&cate3={{cate.3}}&cate4={{cate.4}}&cate5={{cate.5}}&cate6={{cate.6}}&cate7={{cate.7}}&cate8={{cate.8}}&cate9={{cate.9}}&cate10={{cate.10}}&cate11={{cate.11}}&cate12={{cate.12}}&cate13={{cate.13}}&cate14={{cate.14}}&distance={{cate.15}}" aria-label="Previous" style="color: black;">
                                                         <span aria-hidden="true">&laquo;</span>
                                                 </a>
                                                 {% endif %}
@@ -58,12 +58,12 @@
                                                 {% for i in ran10 %}
 
                                                 {% if no == i %}
-                                                <li class="page-item active" aria-current="page"><span
+                                                <li class="page-item active" aria-current="page"><span 
                                                                 class="page-link">{{i}}<span
                                                                         class="sr-only"></span></span></li>
                                                 {% else %}
                                                 <!-- <li class="page-item"><a class="page-link" href="?no={{i}}&search_word={{search_word}}&cate[0]={{cate.0}}&cate[1]={{cate.1}}&cate[2]={{cate.2}}&cate[3]={{cate.3}}&cate[4]={{cate.4}}&cate[5]={{cate.5}}&cate[6]={{cate.6}}&cate[7]={{cate.7}}&cate[8]={{cate.8}}&cate[9]={{cate.9}}&cate[10]={{cate.10}}&cate[11]={{cate.11}}&cate[12]={{cate.12}}&cate[13]={{cate.13}}&cate[14]={{cate.14}}&dist={{cate.15}}">{{i}}</a> -->
-                                                        <li class="page-item"><a class="page-link" href="?no={{i}}&search_word={{search_word}}&cate0={{cate.0}}&cate1={{cate.1}}&cate2={{cate.2}}&cate3={{cate.3}}&cate4={{cate.4}}&cate5={{cate.5}}&cate6={{cate.6}}&cate7={{cate.7}}&cate8={{cate.8}}&cate9={{cate.9}}&cate10={{cate.10}}&cate11={{cate.11}}&cate12={{cate.12}}&cate13={{cate.13}}&cate14={{cate.14}}&distance={{cate.15}}">{{i}}</a>
+                                                        <li class="page-item"><a class="page-link" style="color: black;" href="?no={{i}}&search_word={{search_word}}&cate0={{cate.0}}&cate1={{cate.1}}&cate2={{cate.2}}&cate3={{cate.3}}&cate4={{cate.4}}&cate5={{cate.5}}&cate6={{cate.6}}&cate7={{cate.7}}&cate8={{cate.8}}&cate9={{cate.9}}&cate10={{cate.10}}&cate11={{cate.11}}&cate12={{cate.12}}&cate13={{cate.13}}&cate14={{cate.14}}&distance={{cate.15}}">{{i}}</a>
                                                 </li>
                                                 
                                                 {% endif %}
@@ -76,7 +76,7 @@
 
                                         <li class="page-item">
                                                 {% if no != leng %}
-                                                <a class="page-link" href="?no={{addno}}&search_word={{search_word}}&cate0={{cate.0}}&cate1={{cate.1}}&cate2={{cate.2}}&cate3={{cate.3}}&cate4={{cate.4}}&cate5={{cate.5}}&cate6={{cate.6}}&cate7={{cate.7}}&cate8={{cate.8}}&cate9={{cate.9}}&cate10={{cate.10}}&cate11={{cate.11}}&cate12={{cate.12}}&cate13={{cate.13}}&cate14={{cate.14}}&distance={{cate.15}}" aria-label="Next">
+                                                <a class="page-link" style="color: black;" href="?no={{addno}}&search_word={{search_word}}&cate0={{cate.0}}&cate1={{cate.1}}&cate2={{cate.2}}&cate3={{cate.3}}&cate4={{cate.4}}&cate5={{cate.5}}&cate6={{cate.6}}&cate7={{cate.7}}&cate8={{cate.8}}&cate9={{cate.9}}&cate10={{cate.10}}&cate11={{cate.11}}&cate12={{cate.12}}&cate13={{cate.13}}&cate14={{cate.14}}&distance={{cate.15}}" aria-label="Next">
                                                         <span aria-hidden="true">&raquo;</span>
 
 
