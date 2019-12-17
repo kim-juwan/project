@@ -14,7 +14,7 @@
                     <tr align="center">
                         <td>
                             <a>
-                                <font size="7" face='Cookie' color="Black">
+                                <font size="7" face='Cookie' color="#3D4449">
                                     {{data.2}}
                                 </font>
                             </a>
@@ -45,9 +45,10 @@
                             <a href='https://map.kakao.com/?srcid={{data.0}}&confirmid={{data.0}}&q={{data.2}}&rv=on'
                                 face='Comic Sans MS' class="btn btn-outline-danger" target="_blank">로드뷰</a></td>
                                 {% if request.session.login %}
-                                <td style='width:20%'>
+                                <td style='width:20%;text-align:middle;'>
                                     
-                                    <button class='btn btn-default' onclick='location.href="/rest/edit"'>수정</button><button class='btn btn-default' onclick='location.href="/rest/index"'>삭제</button>
+                                    <button type='submit' class='btn btn-input' style='width:60px;font-size:x-large;font-family: Nanum Pen Script;color:#3D4449;'onclick='location.href="/rest/edit?idno={{data.0}}"'>수정</button><br/>
+                                    <button class='btn btn-input' style='margin-top:5px;width:60px;font-size:x-large;font-family: Nanum Pen Script;color:#3D4449;' onclick='location.href="/rest/index?idno={{data.0}}"'>삭제</button>
                                     
 
                                     
@@ -62,26 +63,26 @@
                     <tr>
                         <td>
                             <details>
-                                <summary style="width: 100%;resize:none;font-size:x-large;font-family: Cookie;color:#3D4449">정보</summary>
-                                <p style="font-family: Nanum Pen Script;color:#7F888F">
-                                    <a style="font-size:x-large;"><strong>영업시간</strong></a><br/>
-                                    <a style="font-size:large;">{% if data.7 == None %}
-                                    - 등록된 영업시간 정보가 없습니다.
+                                <summary style="width: 100%;font-size:x-large;font-family: Cookie;color:#3D4449">정보</summary>
+                                <p style="color:#7F888F">
+                                    <a style="font-size:x-large;font-family: Cookie;"><strong>영업시간</strong></a><br/>
+                                    {% if data.7 == None %}<a style="font-size:x-large;font-family: Nanum Pen Script;">
+                                    - 등록된 영업시간 정보가 없습니다.</a>
                                     {% else %}
-                                    - {{data.7}}
-                                    {% endif %}</a><br/><br/>
-                                    <a style="font-size:x-large;"><strong>주소</strong></a><br/>
-                                    <a style="font-size:large;">{% if data.1 == None %}
-                                    - 등록된 주소가 없습니다.
-                                    {% else %}                    
-                                    - {{data.1}}
-                                    {% endif %} </a><br/><br/>                 
-                                    <a style="font-size:x-large;"><strong>전화번호</strong></a><br/>
-                                    <a style="font-size:large;">{% if data.3 == None %}
-                                    - 등록된 번호가 없습니다.
-                                    {% else %}
-                                    - {{data.3}}
-                                    {% endif %}</a></p>
+                                    <a style="font-size:x-large;font-family: Nanum Pen Script;">- {{data.7}}</a>
+                                    {% endif %}<br/><br/>
+                                    <a style="font-size:x-large;font-family: Cookie;"><strong>주소</strong></a><br/>
+                                    {% if data.1 == None %}<a style="font-size:x-large;font-family: Nanum Pen Script;">
+                                    - 등록된 주소가 없습니다.</a>
+                                    {% else %}                 
+                                    <a style="font-size:x-large;font-family: Nanum Pen Script;">- {{data.1}}</a>
+                                    {% endif %} <br/><br/>                 
+                                    <a style="font-size:x-large;font-family: Cookie;"><strong>전화번호</strong></a><br/>
+                                    {% if data.3 == None %} <a style="font-size:x-large;font-family: Nanum Pen Script;">
+                                    - 등록된 번호가 없습니다.</a>
+                                    {% else %} 
+                                    <a style="font-size:x-large;font-family: Nanum Pen Script;">- {{data.3}}</a>
+                                 {% endif %}</p>
                             </details>
                         </td>
                     </tr>
@@ -89,9 +90,14 @@
                         <td>
                             <details>
                                 <summary style="width: 100%;resize:none;font-size:x-large;font-family: Cookie;color:#3D4449">메뉴</summary>
-                                <p style="font-size:large;font-family: Nanum Pen Script;color:#7F888F">{% for tmp in menu %}
+                                {% if menu == '' %}
+                                <p style="font-size:x-large;font-family: Nanum Pen Script;color:#7F888F"> - 등록된 메뉴가 없습니다.</p>
+                             
+                                {% else %}
+                                <p style="font-size:x-large;font-family: Nanum Pen Script;color:#7F888F">{% for tmp in menu %}
                                      - {{tmp}}<br/>
                                     {% endfor %}</p>
+                                {% endif %}
                             </details>
                         </td>
                     </tr>
@@ -103,7 +109,6 @@
             </td>
 </body>
 
-</div>
 
 
 

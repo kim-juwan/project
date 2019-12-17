@@ -58,6 +58,11 @@ class Database():
         for i in range(no):
             result_data = self.cursor.fetchmany(row)
         return result_data
+    def Update_Data(self,data):
+        update_sql = f'UPDATE REST SET (CATE={data[0]},WEEK={data[1]},ADDR={data[2]},MENU={data[3]},PHONE={data[4]}) WHERE ID={data[5]}'
+        self.cursor.execute(update_sql)
+        connection.commit()
+
     
 class Func(Database):
     def __init__(self):
@@ -139,5 +144,5 @@ class Func(Database):
         if data[10] is not None:
             menu = data[10].read().split('|')
         else :
-            menu = ['등록된 메뉴 정보가 없습니다.']
+            menu = ''
         return menu

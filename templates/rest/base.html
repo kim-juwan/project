@@ -290,7 +290,13 @@
 
       <div class='container' align='center'>
         <nav class="navbar navbar-expand navbar-white">
+          {% if request.session.login %}
+          <img type='image/png' width="32" height="32" src='/static/icon/menu2.png' onclick='location.href="/rest/logout"'/>
+          {% else %}
           <img type='image/png' width="32" height="32" src='/static/icon/menu2.png' onclick='location.href="/rest/login"'/>
+          {% endif %}
+
+
           <a class="navbar-brand" href="/rest/home"
             style="margin-left:10px;font-family: 'Comic Sans MS'; font-size: xx-large; color:#3D4449;"><strong>R.I.P</strong></a>
           <div class="collapse navbar-collapse" id="navbarsExampleDefault">

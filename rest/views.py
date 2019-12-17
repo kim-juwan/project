@@ -105,8 +105,33 @@ def Base(request):
 
 @csrf_exempt
 def Edit(request):
+    if request.method == "GET":
+        idno = request.GET.get('idno')
+        data = model.Select_One(idno)
+        image = func.Image_Encoder(data)
+        menu = func.Menu_Encoder(data)
+        menu2 = ''.join(menu)
+        
+        
+        
+        return render(request,'rest/edit.html',{'data':data,'image':image, 'menu':menu2,'idno':idno})
+    elif request.method == "POST":
+        idno = int(request.POST['idno'])
+        cate = request.POST['cate']
+        week = request.POST['week']
+        addr = request.POST['addr']
+        menu = request.POST['menu']
+        phone = request.POST['phone']
+        new_data = [cate,week,addr,menu,phone,idno]
+        # print(new_data)
+        model.Update_Data(new_data)
+
+        return render(request,f'rest/detail.html?idno={idno}')
+
+        
+        
+
     
-    return render(request,'rest/edit.html')
 
 @csrf_exempt
 def Delete(request):

@@ -11,5 +11,6 @@ urlpatterns = [
     path('login',views.Login,name='Login'),
     path('edit',views.Edit,name='Edit'),
     path('delete',views.Delete,name='Delete'),
+    path('logout',views.Logout,name='Logout'),
     
 ]
