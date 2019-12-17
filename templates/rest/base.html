@@ -17,7 +17,7 @@
 
   <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
   <meta name="theme-color" content="#563d7c">
-  
+
 
 
   <style>
@@ -46,7 +46,7 @@
     @font-face {
       font-family: 'Nanum Pen Script';
       font-weight: 400;
-      src: url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+      src: url('/static/font/NanumPen.ttf');
 
     }
 
@@ -204,29 +204,68 @@
     .mytable {
       border-collapse: collapse;
     }
+
     .mytable table,
     .mytable th,
     .mytable tr,
     .mytable td {
       border: 2px solid #f56a6a;
     }
+
     select {
 
-background: url('/static/icon/down-arrow.png') no-repeat 95% 50%;
-width: 300px;
-padding: .8em .5em;
-border: 2px solid #f56a6a;
-font-family: comic sans ms;
-border-radius: 0px;
--webkit-appearance: none;
--moz-appearance: none;
-appearance: none;
-}
-.checks {position: relative;} .checks input[type="checkbox"] { /* 실제 체크박스는 화면에서 숨김 */ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0 } .checks input[type="checkbox"] + label { display: inline-block; position: relative; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; } .checks input[type="checkbox"] + label:before { /* 가짜 체크박스 */ content: ' '; display: inline-block; width: 21px; /* 체크박스의 너비를 지정 */ height: 21px; /* 체크박스의 높이를 지정 */ line-height: 21px; /* 세로정렬을 위해 높이값과 일치 */ margin: -2px 8px 0 0; text-align: center; vertical-align: middle; background: #fafafa; border: 1px solid #cacece; border-radius : 3px; box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05); } .checks input[type="checkbox"] + label:active:before, .checks input[type="checkbox"]:checked + label:active:before { box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1); }
+      background: url('/static/icon/down-arrow.png') no-repeat 95% 50%;
+      width: 300px;
+      padding: .8em .5em;
+      border: 2px solid #f56a6a;
+      font-family: comic sans ms;
+      border-radius: 0px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
 
+    
 
+    .agree .all_agree input[type="checkbox"] {
+      /* 실제 체크박스는 화면에서 숨김 */
+      display: none;
+    }
 
+    .agree .all_agree input[type="checkbox"]+label {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      background: #f56a6a;
+      border-radius: 3px;
+      float: right;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
 
+    .agree .all_agree input[type="checkbox"]:checked+label {
+      background: url(static/icon/menu1.png) #fa3062 no-repeat center/10px 10px;
+      float: right
+    }
+
+    .agree {
+      position: relative;
+    }
+
+    .agree .all_agree input[type="checkbox"]+label span {
+      position: absolute;
+      top: 0;
+      left: 0px;
+      display: block;
+      font-weight: bold;
+    }
+
+    .checks input[type="checkbox"]+label:active:before,
+    .checks input[type="checkbox"]:checked+label:active:before {
+      box-shadow: 0 1px 2px #ffffff, inset 0px 1px 3px #ffffff;
+    }
   </style>
 
 
