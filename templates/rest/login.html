@@ -6,20 +6,67 @@
     <span class="login100-form-title p-b-41" style="margin-left:10px;font-family: 'Comic Sans MS'; font-size: xx-large; color:#3D4449;">
         Account Login
     </span>
-    <form class="login100-form validate-form p-b-33 p-t-5" action='login' method='POST'>
+    <!-- <form class="login100-form validate-form p-b-33 p-t-5" action='login' method='POST'> -->
 
         <div class="wrap-input100 validate-input" data-validate="Enter password">
-            <input class="input100" type="password" name="pass" placeholder="Password">
+            <input class="input100" type="password" id='pass'name="pass" placeholder="Password">
             <span class="focus-input100" ></span>
         </div>
 
         <div class="container-login100-form-btn m-t-32">
-            <button class="login100-form-btn">
+            <button type='button' id='logbtn' class="login100-form-btn">
                 Login
             </button>
         </div>
 
-    </form>
+    <!-- </form> -->
 </div>
 </div>
+<script>
+
+    
+        $('#logbtn').click(function(){
+
+            var pass = $('#pass').val()
+         jQuery.ajax({
+    
+               type:"POST",
+    
+               url:"/rest/login",
+    
+               dataType:"JSON", // 옵션이므로 JSON으로 받을게 아니면 안써도 됨
+                data: {'pass':pass},
+               success : function(data) {
+    
+                     // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+                     alert('로그인에 성공하였습니다.');
+                     // TODO
+                    location.href='/rest/home'
+               },
+    
+               complete : function(data) {
+    
+                     // 통신이 실패했어도 완료가 되었을 때 이 함수를 타게 된다.
+                     
+                     // TODO
+    
+               },
+    
+               error : function(xhr, status, error) {
+    
+                     alert(error);
+    
+               }
+    
+         });
+    
+    });
+    
+    </script>
+    
+    
+    
+
+
+
 {% endblock %}

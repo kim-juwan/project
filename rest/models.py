@@ -57,9 +57,14 @@ class Database():
         for i in range(no):
             result_data = self.cursor.fetchmany(row)
         return result_data
+
     def Update_Data(self,data):
-        update_sql = f'UPDATE REST SET (CATE={data[0]},WEEK={data[1]},ADDR={data[2]},MENU={data[3]},PHONE={data[4]}) WHERE ID={data[5]}'
+        update_sql = f"UPDATE REST SET CATE=\'{data[0]}\',WEEK=\'{data[1]}\',ADDR=\'{data[2]}\',MENU=\'{data[3]}\',PHONE=\'{data[4]}\' WHERE ID = \'{data[5]}\'"
         self.cursor.execute(update_sql)
+        connection.commit()
+    def Delete_Date(self,idno):
+        delete_sql = f"DELETE FROM REST WHERE ID=\'{idno}\'"
+        self.cursor.execute(delete_sql)
         connection.commit()
 
     

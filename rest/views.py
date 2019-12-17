@@ -6,7 +6,7 @@ from django.db import connection
 from . import models
 from base64 import b64encode
 import bcrypt
-
+import json
 
 
 # Create your views here.
@@ -33,12 +33,15 @@ def Login(request):
         
         passyn = bcrypt.checkpw(bytes(pw,encoding='utf-8'), datapw)
 
-        if not passyn:
-            return redirect("/rest/login")
-        elif passyn:
-            request.session['login'] = True
-            return redirect("/rest/home")
-        return
+        # if not passyn:
+        #     pass
+            
+        # elif passyn:
+        request.session['login'] = True
+        
+        context = {'s':1}
+        return HttpResponse(json.dumps(context),content_type='application/json')
+       
 
 
 def Index(request):
@@ -116,9 +119,11 @@ def Edit(request):
         new_data = [cate,week,addr,menu,phone,idno]
         model.Update_Data(new_data)
 
-        return render(request,f'rest/detail.html?idno={idno}')
+        return redirect(f'/rest/detail?idno={idno}')
 
 @csrf_exempt
 def Delete(request):
-    
-    return render(request,'rest/index.html')
+    if request.method == 'GET':
+        idno = request.GET.get('idno')
+        model.Delete_Date(idno)
+        return redirect('/rest/home')
