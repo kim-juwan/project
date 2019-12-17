@@ -12,7 +12,9 @@ from base64 import b64encode
 model = models.Database()
 func = models.Func()
 
-
+# @csrf_exempt
+def Login(request):
+    return render(request,'rest/login.html')
 
 
 

@@ -20,10 +20,10 @@
                                 <td width="8%">거리</td>
                         </tr>
                         {% for data in asc_data %}
-                        <tr height="150" align='center'style="margin-left:10px;font-family: 'Nanum Pen Script'; font-size: x-large; color:#7F888F;">
+                        <tr height="150" align='center'style="margin-left:10px; font-family:'Nanum Pen Script'; font-size: x-large; color:#7F888F;">
                         <td><a  href="detail?idno={{data.5}}" ><img src="data:;base64,{{data.4}}"
                                                 width='150px' height='150px' /></a></td>
-                        <td><a class='underline' style='font-size:xx-large' href="detail?idno={{data.5}}">
+                        <td><a class='underline' style=" font-family:'Nanum Pen Script'; font-size: xx-large;" href="detail?idno={{data.5}}">
                                        {{data.0}}
                                 </a></td>
                         <td >{{data.1}}</td>

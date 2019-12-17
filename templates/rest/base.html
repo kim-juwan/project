@@ -12,7 +12,8 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/cover/">
   <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial"
     rel="stylesheet" />
-
+    <link href="/static/css/logmain.css" rel="stylesheet" />
+    <link href="/static/css/logutil.css" rel="stylesheet" />
   <title>R.I.P</title>
 
   <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
@@ -44,7 +45,7 @@
     }
 
     @font-face {
-      font-family: 'Nanum Pen Script';
+      font-family:'Nanum Pen Script';
       font-weight: 400;
       src: url('/static/font/NanumPen.ttf');
 
@@ -195,10 +196,13 @@
     }
 
     .underline:hover {
+      
       text-decoration: underline;
-      text-underline-position: under;
+      text-underline-position: top,under;
       font-weight: bold;
-      color: #f56a6a
+      color: #f56a6a;
+      
+      
     }
 
     .mytable {
@@ -225,7 +229,9 @@
       appearance: none;
     }
 
-    
+    .checks {
+      position: relative;
+    }
 
     .agree .all_agree input[type="checkbox"] {
       /* 실제 체크박스는 화면에서 숨김 */
@@ -236,35 +242,41 @@
       display: inline-block;
       position: relative;
       cursor: pointer;
-      background: #f56a6a;
-      border-radius: 3px;
-      float: right;
+      /* background: #f56a6a; */
+      border-radius: 6px;
+      margin-right:20px;
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
     }
 
-    .agree .all_agree input[type="checkbox"]:checked+label {
-      background: url(static/icon/menu1.png) #fa3062 no-repeat center/10px 10px;
-      float: right
+    .agree .all_agree input[type="checkbox"]:checked+label span{
+      background: url('/static/icon/checked.png') no-repeat center;
+      width:32px;
+      height: 32px;
+      
     }
+
 
     .agree {
-      position: relative;
+      /* position: relative; */
     }
 
-    .agree .all_agree input[type="checkbox"]+label span {
+    .agree .all_agree input[type="checkbox"] + label span {
       position: absolute;
-      top: 0;
-      left: 0px;
-      display: block;
-      font-weight: bold;
+      /* background: #f56a6a; */
+      background: url('/static/icon/cancel.png') no-repeat center;
+      top: 5px;
+      left: 150px;
+      width:32px;height: 32px;
+      display: url('/static/icon/cancel.png');
+      /* font-weight: bold; */
     }
 
     .checks input[type="checkbox"]+label:active:before,
     .checks input[type="checkbox"]:checked+label:active:before {
-      box-shadow: 0 1px 2px #ffffff, inset 0px 1px 3px #ffffff;
+      box-shadow: 0 1px 2px #000000, inset 0px 1px 3px #000000;
     }
   </style>
 
