@@ -7,11 +7,9 @@ import json
 import cx_Oracle as oci
  
 
-
 conn = oci.connect('admin/1234@192.168.99.100:32764/xe',encoding='utf-8')
 cursor = conn.cursor()
    
-
 lists = []
 for j in range(16):
     dict1 = {}
@@ -23,7 +21,7 @@ for dict1 in lists:
     for k,v in dict1.items():
         # print(k,v,k+0.000520,v-0.0004245)
         for i in range(1,4):    
-            open_api = 'https://dapi.kakao.com/v2/local/search/category.json?category_group_code=CE7&rect=%s,%s,%s,%s&x=129.090399&y=35.229574&sort=distance&page=%s'%(k,v,k+0.000520,v-0.0004245,i)
+            open_api = 'https://dapi.kakao.com/v2/local/search/category.json?category_group_code=FD6&rect=%s,%s,%s,%s&x=129.090399&y=35.229574&sort=distance&page=%s'%(k,v,k+0.000520,v-0.0004245,i)
             api_key = 'f56b92905ade194d1254314f9e91d103'
             # print(open_api)
             res = requests.get(open_api, headers={'Authorization' : 'KakaoAK ' + api_key } )
@@ -32,21 +30,26 @@ for dict1 in lists:
             meta = dic1['meta']['is_end']
             
             for result in results:
-                
+                name = result['place_name']    
+                address = result['road_address_name']
                 try:
                     category = result['category_name'].split('>')[1]
                     category = category.strip()
                 except:
                     category = '기타'
 
+                phone = result['phone']
+                distance = int(result['distance'])
                 url = result['place_url']
                 new_url = url.replace('place.','').split('/')
                 
-                lists = [category,new_url[3]]
+                x = float(result['x'])
+                y = float(result['y'])
+                lists = [new_url[3],name,address,category,phone,distance,x,y]
                
                 try:
-                    update_sql = 'UPDATE REST SET CATE=:1 WHERE ID =:2'
-                    cursor.execute(update_sql,lists)
+                    insert_sql = 'INSERT INTO REST(ID,NAME,ADDR,CATE,PHONE,DIST,LNG,LAT) VALUES (:1,:2,:3,:4,:5,:6,:7,:8)'
+                    cursor.execute(insert_sql,lists)
                 except:
                     print('pass')
                     pass

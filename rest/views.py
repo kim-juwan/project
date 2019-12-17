@@ -30,8 +30,7 @@ def Login(request):
         cursor.execute(sql)
         row = cursor.fetchone()
         datapw = row[0].read()
-        # salt = bcrypt.gensalt()
-        print(datapw)
+        
         passyn = bcrypt.checkpw(bytes(pw,encoding='utf-8'), datapw)
 
         if not passyn:
@@ -44,7 +43,6 @@ def Login(request):
 
 def Index(request):
     data = model.Select_Asc()
-    # print(data)
 
     new_data = func.Randnum(data,5)
     
@@ -53,10 +51,8 @@ def Index(request):
     return render(request,'rest/index.html',{'rand_data':new_data})
 
 def Home(request):
-
-    # 출발점 x = 975771, y = 486419
-    # <a href='https://map.kakao.com/?map_type=TYPE_MAP&target=walk&rt=975229,486370,975234,486221&rt1={{data1}}&rt2={{data2}}&rtIds=1013597398,1543854818'>버튼</a>,{'data1':'떡볶이공작소 부산대점','data2':'디델리 부산점'}
     return render(request,'rest/home.html')
+
 @csrf_exempt
 def Board(request):
     
@@ -82,8 +78,6 @@ def Board(request):
         ran = func.Pagination_cate(no,row,data,cate)
     new_data = func.Image_Data(data)    
     
-
-    
     return render(request,'rest/board.html',{'asc_data':new_data,'no':no,'leng':ran[1],'subno':subno,'addno':addno,'ran10':ran[0],'search_word':search_word,'cate':cate})
 
 def Detail(request):
@@ -91,7 +85,6 @@ def Detail(request):
     data = model.Select_One(idno)
     image = func.Image_Encoder(data)
     menu = func.Menu_Encoder(data)
-    # print(menu)
     return render(request,'rest/detail.html',{'data':data,'image':image, 'menu':menu})
 
 def Search(request):
@@ -112,8 +105,6 @@ def Edit(request):
         menu = func.Menu_Encoder(data)
         menu2 = ''.join(menu)
         
-        
-        
         return render(request,'rest/edit.html',{'data':data,'image':image, 'menu':menu2,'idno':idno})
     elif request.method == "POST":
         idno = int(request.POST['idno'])
@@ -123,15 +114,9 @@ def Edit(request):
         menu = request.POST['menu']
         phone = request.POST['phone']
         new_data = [cate,week,addr,menu,phone,idno]
-        # print(new_data)
         model.Update_Data(new_data)
 
         return render(request,f'rest/detail.html?idno={idno}')
-
-        
-        
-
-    
 
 @csrf_exempt
 def Delete(request):
