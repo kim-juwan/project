@@ -13,10 +13,6 @@ import bcrypt
 model = models.Database()
 func = models.Func()
 
-# @csrf_exempt
-def Login(request):
-    return render(request,'rest/login.html')
-
 @csrf_exempt
 def Logout(request):
     del request.session['login']
