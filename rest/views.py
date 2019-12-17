@@ -5,6 +5,7 @@ import cx_Oracle as oci
 from django.db import connection
 from . import models
 from base64 import b64encode
+import bcrypt
 
 
 
@@ -12,11 +13,33 @@ from base64 import b64encode
 model = models.Database()
 func = models.Func()
 
-# @csrf_exempt
+@csrf_exempt
+def Logout(request):
+    del request.session['login']
+    return redirect("/rest/home")
+
+@csrf_exempt
 def Login(request):
-    return render(request,'rest/login.html')
+    if request.method == "GET":
+        return render(request, "rest/login.html")
+    elif request.method == "POST":
+        pw = request.POST['pass']
 
+        sql = "SELECT PASSWORD FROM EP"
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        row = cursor.fetchone()
+        datapw = row[0].read()
+        # salt = bcrypt.gensalt()
+        print(datapw)
+        passyn = bcrypt.checkpw(bytes(pw,encoding='utf-8'), datapw)
 
+        if not passyn:
+            return redirect("/rest/login")
+        elif passyn:
+            request.session['login'] = True
+            return redirect("/rest/home")
+        return
 
 
 def Index(request):
@@ -68,7 +91,7 @@ def Detail(request):
     data = model.Select_One(idno)
     image = func.Image_Encoder(data)
     menu = func.Menu_Encoder(data)
-    
+    # print(menu)
     return render(request,'rest/detail.html',{'data':data,'image':image, 'menu':menu})
 
 def Search(request):
@@ -78,7 +101,14 @@ def Search(request):
 @csrf_exempt
 def Base(request):
     
-    
-    
-    
     return render(request,'rest/base.html')
+
+@csrf_exempt
+def Edit(request):
+    
+    return render(request,'rest/edit.html')
+
+@csrf_exempt
+def Delete(request):
+    
+    return render(request,'rest/index.html')
