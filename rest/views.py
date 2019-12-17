@@ -5,6 +5,7 @@ import cx_Oracle as oci
 from django.db import connection
 from . import models
 from base64 import b64encode
+import bcrypt
 
 
 
@@ -16,7 +17,33 @@ func = models.Func()
 def Login(request):
     return render(request,'rest/login.html')
 
+@csrf_exempt
+def Logout(request):
+    del request.session['login']
+    return redirect("/rest/home")
 
+@csrf_exempt
+def Login(request):
+    if request.method == "GET":
+        return render(request, "rest/login.html")
+    elif request.method == "POST":
+        pw = request.POST['pass']
+
+        sql = "SELECT PASSWORD FROM EP"
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        row = cursor.fetchone()
+        datapw = row[0].read()
+        # salt = bcrypt.gensalt()
+        print(datapw)
+        passyn = bcrypt.checkpw(bytes(pw,encoding='utf-8'), datapw)
+
+        if not passyn:
+            return redirect("/rest/login")
+        elif passyn:
+            request.session['login'] = True
+            return redirect("/rest/home")
+        return
 
 
 def Index(request):
@@ -82,3 +109,4 @@ def Base(request):
     
     
     return render(request,'rest/base.html')
+
