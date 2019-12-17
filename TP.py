@@ -271,6 +271,7 @@ for row in rows:
     soup = BeautifulSoup(driver.page_source, 'lxml')
     name = soup.find('h2',class_='tit_location').text
     week_list = []
+    week4=[]
     print(name) 
     if soup.find('strong',class_='tit_operation') is not None:  #영업시간 가져오는..
         if soup.find('div', class_= 'fold_contact') is None:
@@ -293,8 +294,8 @@ for row in rows:
     menu5 = ''
     menu6 = ''
     if soup.find('ul',class_='list_menu') is not None:
-        menu_list = soup.find('ul',class_='list_menu').find_all('li',class_='photo_type')
-        for menu in menu_list:
+        menu_list1 = soup.find('ul',class_='list_menu').find_all('li',class_='photo_type')
+        for menu in menu_list1:
             menu_li1 = menu.find('div',class_='info_menu').text.strip().replace('명:','').split('\n')
             
             if len(menu_li1) > 2:
@@ -315,8 +316,8 @@ for row in rows:
         menu4 = ' | '.join(menu3)
     
     
-        menu_list = soup.find('ul',class_='list_menu').find_all('li',class_='nophoto_type')
-        for menu in menu_list:
+        menu_list2 = soup.find('ul',class_='list_menu').find_all('li',class_='nophoto_type')
+        for menu in menu_list2:
             menu_li1 = menu.find('div',class_='info_menu').text.strip().replace('명:','').split('\n')
             if len(menu_li1) > 2:
                 if menu_li1[0] == menu_li1[2]:
@@ -335,8 +336,8 @@ for row in rows:
         menu5 = ' | '.join(menu3)
     
     
-        menu_list = soup.find('ul',class_='list_menu').find_all('li',class_='menuonly_type')
-        for menu in menu_list:
+        menu_list3 = soup.find('ul',class_='list_menu').find_all('li',class_='menuonly_type')
+        for menu in menu_list3:
             menu_li1 = menu.find('div',class_='info_menu').text.strip().replace('명:','').split('\n')
         
             

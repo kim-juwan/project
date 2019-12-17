@@ -38,11 +38,12 @@
     }
 
     body {
+      
       /* background-image: url("/static/icon/배경사진.png"); */
       /* background-size: cover; */
       /* background-repeat: no-repeat; */
       background-color: #ffffff;
-    }
+    }::-webkit-scrollbar{width: 16px;}::-webkit-scrollbar-track{background-color: #7F888F;}::-webkit-scrollbar-thumb{background-color: #f56a6a;border-radius: 5px;}
 
     @font-face {
       font-family:'Nanum Pen Script';
@@ -289,7 +290,7 @@
 
       <div class='container' align='center'>
         <nav class="navbar navbar-expand navbar-white">
-          <img type='image/png' width="32" height="32" src='/static/icon/menu2.png' />
+          <img type='image/png' width="32" height="32" src='/static/icon/menu2.png' onclick='location.href="/rest/login"'/>
           <a class="navbar-brand" href="/rest/home"
             style="margin-left:10px;font-family: 'Comic Sans MS'; font-size: xx-large; color:#3D4449;"><strong>R.I.P</strong></a>
           <div class="collapse navbar-collapse" id="navbarsExampleDefault">

@@ -91,7 +91,7 @@ def Detail(request):
     data = model.Select_One(idno)
     image = func.Image_Encoder(data)
     menu = func.Menu_Encoder(data)
-    
+    # print(menu)
     return render(request,'rest/detail.html',{'data':data,'image':image, 'menu':menu})
 
 def Search(request):
@@ -101,8 +101,14 @@ def Search(request):
 @csrf_exempt
 def Base(request):
     
-    
-    
-    
     return render(request,'rest/base.html')
 
+@csrf_exempt
+def Edit(request):
+    
+    return render(request,'rest/edit.html')
+
+@csrf_exempt
+def Delete(request):
+    
+    return render(request,'rest/index.html')
