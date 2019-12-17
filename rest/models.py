@@ -52,15 +52,18 @@ class Database():
         return result_data
     def Cate_Search(self,no,row,cate):
         search_sql = f"SELECT * FROM (SELECT * FROM REST WHERE CATE LIKE \'{cate[0]}\' OR CATE LIKE \'{cate[1]}\' OR CATE LIKE \'{cate[2]}\' OR CATE LIKE \'{cate[3]}\' OR CATE LIKE \'{cate[4]}\' OR CATE LIKE \'{cate[5]}\' OR CATE LIKE \'{cate[6]}\' OR CATE LIKE \'{cate[7]}\' OR CATE LIKE \'{cate[8]}\' OR CATE LIKE \'{cate[9]}\' OR CATE LIKE \'{cate[10]}\' OR CATE LIKE \'{cate[11]}\' OR CATE LIKE \'{cate[12]}\' OR CATE LIKE \'{cate[13]}\' OR CATE LIKE \'{cate[14]}\') WHERE (DIST < {cate[15]}) ORDER BY DIST ASC"
-        # search_sql = f"SELECT * FROM (SELECT * FROM REST WHERE CATE LIKE \'%{cate[0]}%\' OR CATE LIKE \'%{cate[1]}%\' OR CATE LIKE \'%{cate[2]}%\' OR CATE LIKE \'%{cate[3]}%\' OR CATE LIKE \'%{cate[4]}%\' OR CATE LIKE \'%{cate[5]}%\' OR CATE LIKE \'%{cate[6]}%\' OR CATE LIKE \'%{cate[7]}%\' OR CATE LIKE \'%{cate[8]}%\' OR CATE LIKE \'%{cate[9]}%\' OR CATE LIKE \'%{cate[10]}%\' OR CATE LIKE \'%{cate[11]}%\' OR CATE LIKE \'%{cate[12]}%\' OR CATE LIKE \'%{cate[13]}%\' OR CATE LIKE \'%{cate[14]}%\') WHERE (DIST < {cate[15]}) ORDER BY DIST ASC"
-        # search_sql = f"SELECT * FROM (SELECT * FROM REST WHERE CATE LIKE (\'%{cate[0]}%\' OR \'%{cate[1]}%\' OR \'%{cate[2]}%\' OR \'%{cate[3]}%\' OR \'%{cate[4]}%\' OR \'%{cate[5]}%\' OR \'%{cate[6]}%\' OR \'%{cate[7]}%\' OR \'%{cate[8]}%\' OR \'%{cate[9]}%\' OR \'%{cate[10]}%\' OR \'%{cate[11]}%\' OR \'%{cate[12]}%\' OR \'%{cate[13]}%\' OR \'%{cate[14]}%\')) WHERE (DIST < {cate[15]}) "
         self.cursor.execute(search_sql)
         for i in range(no):
             result_data = self.cursor.fetchmany(row)
         return result_data
+
     def Update_Data(self,data):
-        update_sql = f'UPDATE REST SET (CATE={data[0]},WEEK={data[1]},ADDR={data[2]},MENU={data[3]},PHONE={data[4]}) WHERE ID={data[5]}'
+        update_sql = f"UPDATE REST SET CATE=\'{data[0]}\',WEEK=\'{data[1]}\',ADDR=\'{data[2]}\',MENU=\'{data[3]}\',PHONE=\'{data[4]}\' WHERE ID = \'{data[5]}\'"
         self.cursor.execute(update_sql)
+        connection.commit()
+    def Delete_Date(self,idno):
+        delete_sql = f"DELETE FROM REST WHERE ID=\'{idno}\'"
+        self.cursor.execute(delete_sql)
         connection.commit()
 
     
