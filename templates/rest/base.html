@@ -280,6 +280,49 @@
     .checks input[type="checkbox"]:checked+label:active:before {
       box-shadow: 0 1px 2px #000000, inset 0px 1px 3px #000000;
     }
+
+    .chkall input[type="checkbox"] {
+      /* 실제 체크박스는 화면에서 숨김 */
+      display: none;
+    }
+
+    .chkall input[type="checkbox"]+label {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      /* background: #f56a6a; */
+      border-radius: 6px;
+      margin-right:20px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .chkall input[type="checkbox"]:checked+label span{
+      background: url('/static/icon/checked.png') no-repeat center;
+      width:32px;
+      height: 32px;
+      
+    }
+
+
+    .chkall {
+      /* position: relative; */
+    }
+
+    .chkall input[type="checkbox"] + label span {
+      position: absolute;
+      /* background: #f56a6a; */
+      background: url('/static/icon/cancel.png') no-repeat center;
+      top: 0px;
+      left: 100px;
+      width:32px;height: 32px;
+      display: url('/static/icon/cancel.png');
+      /* font-weight: bold; */
+    }
+
+    
   </style>
 
 

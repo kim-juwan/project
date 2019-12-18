@@ -48,12 +48,13 @@ for row in rows:
         for i in range(1, len(week_list)):
             week4 += (' '+str(week_list[i])) ##영업시간 가져오는
 
-    menu3 = []
+    
     menu4 = ''
     menu5 = ''
     menu6 = ''
     if soup.find('ul',class_='list_menu') is not None:
         menu_list1 = soup.find('ul',class_='list_menu').find_all('li',class_='photo_type')
+        menu3 = []
         for menu in menu_list1:
             menu_li1 = menu.find('div',class_='info_menu').text.strip().replace('명:','').split('\n')
             
@@ -76,6 +77,7 @@ for row in rows:
     
     
         menu_list2 = soup.find('ul',class_='list_menu').find_all('li',class_='nophoto_type')
+        menu3 = []
         for menu in menu_list2:
             menu_li1 = menu.find('div',class_='info_menu').text.strip().replace('명:','').split('\n')
             if len(menu_li1) > 2:
@@ -94,6 +96,7 @@ for row in rows:
         menu5 = ' | '.join(menu3)
     
         menu_list3 = soup.find('ul',class_='list_menu').find_all('li',class_='menuonly_type')
+        menu3 = []
         for menu in menu_list3:
             menu_li1 = menu.find('div',class_='info_menu').text.strip().replace('명:','').split('\n')
         
