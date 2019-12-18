@@ -33,13 +33,13 @@ def Login(request):
         
         passyn = bcrypt.checkpw(bytes(pw,encoding='utf-8'), datapw)
 
-        # if not passyn:
-        #     pass
+        if not passyn:
+            pass
             
-        # elif passyn:
-        request.session['login'] = True
+        elif passyn:
+            request.session['login'] = True
         
-        context = {'s':1}
+            context = {'s':1}
         return HttpResponse(json.dumps(context),content_type='application/json')
        
 

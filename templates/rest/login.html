@@ -4,7 +4,7 @@
 <div class='container' align='center'>
 <div class="wrap-login100 p-t-30 p-b-50">
     <span class="login100-form-title p-b-41" style="margin-left:10px;font-family: 'Comic Sans MS'; font-size: xx-large; color:#3D4449;">
-        Account Login
+        Administrator Login
     </span>
     <!-- <form class="login100-form validate-form p-b-33 p-t-5" action='login' method='POST'> -->
 
@@ -44,17 +44,9 @@
                     location.href='/rest/home'
                },
     
-               complete : function(data) {
-    
-                     // 통신이 실패했어도 완료가 되었을 때 이 함수를 타게 된다.
-                     
-                     // TODO
-    
-               },
-    
                error : function(xhr, status, error) {
     
-                     alert(error);
+                     alert('비밀번호가 틀렸습니다.');
     
                }
     
