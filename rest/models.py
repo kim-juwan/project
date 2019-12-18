@@ -4,9 +4,10 @@ import cx_Oracle as oci
 from django.db import connection
 import random
 from base64 import b64encode
+import bcrypt
+import json
 
 class Database():
-    
     def __init__(self):
         self.cursor = connection.cursor()
 
@@ -66,6 +67,11 @@ class Database():
         delete_sql = f"DELETE FROM REST WHERE ID=\'{idno}\'"
         self.cursor.execute(delete_sql)
         connection.commit()
+    def Select_Pw(self):
+        select_sql = "SELECT PASSWORD FROM EP"
+        self.cursor.execute(select_sql)
+        data = self.cursor.fetchone()
+        return data
 
     
 class Func(Database):
@@ -140,3 +146,18 @@ class Func(Database):
         else :
             menu = ''
         return menu
+    def Check_Password(self,pw):
+        super().__init__()
+        data = super().Select_Pw()
+        datapw = data[0].read()
+        passyn = bcrypt.checkpw(bytes(pw,encoding='utf-8'), datapw)
+        loginsuccess = 0
+
+        if not passyn:
+            pass
+            
+        elif passyn:
+            loginsuccess = 1
+            context ={'s': 1 }
+
+        return context,loginsuccess

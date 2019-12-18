@@ -1,153 +1,134 @@
 <!DOCTYPE html>
 {% extends 'rest/base.html' %}
-
 {% block content %}
+<div class='container' align='center'>
+    <div align='center' style='width:80%; vertical-align:top;'>
+        <div align='center' style='margin-top:16px'>
+            <font size='7' color="#3D4449" face='comic sans ms'>Restaurant In Program</font>
+        </div>
+        <table type='table' class="container" align='center' style='margin-top:50px;'>
+            <tr>
+                <td style='width:25%;'></td>
+                <td style='width:50%;'>
+                    <a style='font-family: Nanum Pen Script;font-size:xx-large;color:#7F888F;width:430px'
+                        class="btn btn-white">카테고리를 선택하세요
+                        (복수선택 가능)</a></td>
+                <td class='chkall'
+                    style="width:25%;margin-top:30px;font-family:'Cookie'; font-size: large; color:#7F888F;vertical-align:middle; border:2px solid #f56a6a;text-align: center;">
 
-<body>
-
-    <div class='container' align='center'>
-
-
-
-        <div align='center' style='width:80%; vertical-align:top;'>
-            <div align='center' style='margin-top:16px'>
-                <font size='7' color="#3D4449" face='comic sans ms'>Restaurant In Program</font>
-            </div>
-            <table type='table' class="container" align='center' style='margin-top:50px;'>
-                <tr>
-                    <td style='width:25%;'></td>
-                    <td style='width:50%;'>
-                <a style='font-family: Nanum Pen Script;font-size:xx-large;color:#7F888F;width:430px'
-                    class="btn btn-white">카테고리를 선택하세요
-                    (복수선택 가능)</a></td>
-                    <td class='chkall' style="width:25%;margin-top:30px;font-family:'Cookie'; font-size: large; color:#7F888F;vertical-align:middle; border:2px solid #f56a6a;text-align: center;">
-                       
-                    <input type="checkbox"  id='cball' value='모두선택'>
+                    <input type="checkbox" id='cball' value='모두선택'>
                     <label for='cball' id='cball' style="font-size:1.2em;"><span></span>모두 선택</label>
-                
+
                 </td>
+            </tr>
+        </table>
+    </div>
+    <form class="form-inline my-2 my-lg-0" action="board" method="GET">
+        <div class='container'>
+            <table class='table mytable'
+                style="width: 100%; margin-top:30px;font-family:'Nanum Pen Script'; font-size: x-large; color:#7F888F;vertical-align:middle;">
+                <tr class='agree' style="position: relative;">
+                    <td class='all_agree' style="width: 16%;">
+                        <input type="checkbox" id='cb0' name='cate0' value='한식'>
+                        <label for='cb0' style="font-size:1.2em;"><span></span>한식</label>
+                    </td>
+                    <td class='all_agree' style="width: 16%;">
+                        <input type="checkbox" id='cb1' name='cate1' value='중식'>
+                        <label for='cb1' style="font-size:1.2em;"><span></span>중식</label>
+                    </td>
+                    <td class='all_agree' style="width: 16%;">
+                        <input type="checkbox" id='cb2' name='cate2' value='양식'>
+                        <label for='cb2' style="font-size:1.2em;"><span></span>양식</label>
+                    </td>
+                    <td class='all_agree' style="width: 16%;">
+                        <input type="checkbox" id='cb3' name='cate3' value='일식'>
+                        <label for='cb3' style="font-size:1.2em;"><span></span>일식</label>
+                    </td>
+                    <td class='all_agree' style="width: 16%;">
+                        <input type="checkbox" id='cb4' name='cate4' value='간식'>
+                        <label for='cb4' style="font-size:1.2em;"><span></span>간식</label>
+                    </td>
                 </tr>
+                <tr class='agree' style="position: relative;">
+                    <td class='all_agree'>
+                        <input type="checkbox" id='cb5' name='cate5' value='도시락'>
+                        <label for='cb5' style="font-size:1.2em;"><span></span>도시락</label>
+                    </td>
+                    <td class='all_agree'>
+                        <input type="checkbox" id='cb6' name='cate6' value='분식'>
+                        <label for='cb6' style="font-size:1.2em;"><span></span>분식</label>
+                    </td>
+                    <td class='all_agree'>
+                        <input type="checkbox" id='cb7' name='cate7' value='뷔페'>
+                        <label for='cb7' style="font-size:1.2em;"><span></span>뷔페</label>
+                    </td>
+                    <td class='all_agree'>
+                        <input type="checkbox" id='cb8' name='cate8' value='아시아음식'>
+                        <label for='cb8' style="font-size:1.2em;"><span></span>아시아음식</label>
+                    </td>
+                    <td class='all_agree'>
+                        <input type="checkbox" id='cb9' name='cate9' value='술집'>
+                        <label for='cb9' style="font-size:1.2em;"><span></span>술집</label>
+                    </td>
+                </tr>
+                <tr class='agree' style="position: relative;">
+                    <td class='all_agree'>
+                        <input type="checkbox" id='cb10' name='cate10' value='치킨'>
+                        <label for='cb10' style="font-size:1.2em;"><span></span>치킨</label>
+                    </td>
+                    <td class='all_agree'>
+                        <input type="checkbox" id='cb11' name='cate11' value='패밀리레스토랑'>
+                        <label for='cb11' style="font-size:1.2em;"><span></span>패밀리레스토랑</label>
+                    </td>
+                    <td class='all_agree'>
+                        <input type="checkbox" id='cb12' name='cate12' value='패스트푸드'>
+                        <label for='cb12' style="font-size:1.2em;"><span></span>패스트푸드</label>
+                    </td>
+                    <td class='all_agree'>
+                        <input type="checkbox" id='cb13' name='cate13' value='퓨전요리'>
+                        <label for='cb13' style="font-size:1.2em;"><span></span>퓨전요리</label>
+                    </td>
+                    <td class='all_agree'>
+                        <input type="checkbox" id='cb14' name='cate14' value='카페'>
+                        <label for='cb14' style="font-size:1.2em;"><span></span>카페</label>
+                    </td>
+                </tr>
+
             </table>
         </div>
-        <form class="form-inline my-2 my-lg-0" action="board" method="GET">
-            
-
-                <div class='container' >
-                    <table class='table mytable' style="width: 100%; margin-top:30px;font-family:'Nanum Pen Script'; font-size: x-large; color:#7F888F;vertical-align:middle;">
-                        <tr class='agree' style="position: relative;">
-                            <td class='all_agree' style="width: 16%;">
-                                <input type="checkbox" id='cb0' name='cate0' value='한식'>
-                                <label for='cb0' style="font-size:1.2em;"><span></span>한식</label>
-                            </td>
-                            <td class='all_agree' style="width: 16%;">
-                                <input type="checkbox" id='cb1' name='cate1' value='중식'>
-                                <label for='cb1' style="font-size:1.2em;"><span></span>중식</label>
-                            </td>
-                            <td class='all_agree' style="width: 16%;">
-                                <input type="checkbox" id='cb2' name='cate2' value='양식'>
-                                <label for='cb2' style="font-size:1.2em;"><span></span>양식</label>
-                            </td>
-                            <td class='all_agree' style="width: 16%;">
-                                <input type="checkbox" id='cb3' name='cate3' value='일식'>
-                                <label for='cb3' style="font-size:1.2em;"><span></span>일식</label>
-                            </td>
-                            <td class='all_agree' style="width: 16%;">
-                                <input type="checkbox" id='cb4' name='cate4' value='간식'>
-                                <label for='cb4' style="font-size:1.2em;"><span></span>간식</label>
-                            </td>
-                        </tr>
-                        <tr class='agree' style="position: relative;">
-                            <td class='all_agree'>
-                                <input type="checkbox" id='cb5' name='cate5' value='도시락'>
-                                <label for='cb5' style="font-size:1.2em;"><span></span>도시락</label>
-                            </td>
-                            <td class='all_agree'>
-                                <input type="checkbox" id='cb6' name='cate6' value='분식'>
-                                <label for='cb6' style="font-size:1.2em;"><span></span>분식</label>
-                            </td>
-                            <td class='all_agree'>
-                                <input type="checkbox" id='cb7' name='cate7' value='뷔페'>
-                                <label for='cb7' style="font-size:1.2em;"><span></span>뷔페</label>
-                            </td>
-                            <td class='all_agree'>
-                                <input type="checkbox" id='cb8' name='cate8' value='아시아음식'>
-                                <label for='cb8' style="font-size:1.2em;"><span></span>아시아음식</label>
-                            </td>
-                            <td class='all_agree'>
-                                <input type="checkbox" id='cb9' name='cate9' value='술집'>
-                                <label for='cb9' style="font-size:1.2em;"><span></span>술집</label>
-                            </td>
-                        </tr>
-                        <tr class='agree' style="position: relative;">
-                            <td class='all_agree'>
-                                <input type="checkbox" id='cb10' name='cate10' value='치킨'>
-                                <label for='cb10' style="font-size:1.2em;"><span></span>치킨</label>
-                            </td>
-                            <td class='all_agree'>
-                                <input type="checkbox" id='cb11' name='cate11' value='패밀리레스토랑'>
-                                <label for='cb11' style="font-size:1.2em;"><span></span>패밀리레스토랑</label>
-                            </td>
-                            <td class='all_agree'>
-                                <input type="checkbox" id='cb12' name='cate12' value='패스트푸드'>
-                                <label for='cb12' style="font-size:1.2em;"><span></span>패스트푸드</label>
-                            </td>
-                            <td class='all_agree'>
-                                <input type="checkbox" id='cb13' name='cate13' value='퓨전요리'>
-                                <label for='cb13' style="font-size:1.2em;"><span></span>퓨전요리</label>
-                            </td>
-                            <td class='all_agree'>
-                                <input type="checkbox" id='cb14' name='cate14' value='카페'>
-                                <label for='cb14' style="font-size:1.2em;"><span></span>카페</label>
-                            </td>
-                        </tr>
-
-                    </table>
-                </div>
-            </div>
-
-            <div class='container' align='center'>
-                <a style='font-family: Nanum Pen Script;font-size:xx-large;color:#7F888F;width:430px;margin-top:30px'
-                    class="btn btn-white">거리를
-                    설정하세요.</a><br>
-                <select name="distance" style=" margin-top:30px;">
-                    <option value="100">100m</option>
-                    <option value="200">200m</option>
-                    <option value="300">300m</option>
-                    <option value="400">400m</option>
-                    <option value="500">500m</option>
-                </select>
-            <br/>
-                <button class='btn btn-default' type="submit"
-              style="width:50%;color: #7F888F;font-family: Nanum Pen Script;font-size:x-large; margin-left:10px;margin-top:20px; text-decoration:none">통합검색</button>
-
-            </div>
-
-        </form>
+        <div class='container' align='center'>
+            <a style='font-family: Nanum Pen Script;font-size:xx-large;color:#7F888F;width:430px;margin-top:30px'
+                class="btn btn-white">거리를
+                설정하세요.</a><br>
+            <select name="distance" style=" margin-top:30px;">
+                <option value="500">500m</option>
+                <option value="400">400m</option>
+                <option value="300">300m</option>
+                <option value="200">200m</option>
+                <option value="100">100m</option>
+            </select><br />
+            <button class='btn btn-default' type="submit"
+                style="width:50%;color: #7F888F;font-family: Nanum Pen Script;font-size:x-large; margin-left:10px;margin-top:20px; text-decoration:none">통합검색</button>
+        </div>
+    </form>
+</div>
 
 
-
-    </div>
-
-
-</body>
 <script>
-$(document).ready(function(){
-    //최상단 체크박스 클릭
-    $("#cball").click(function(){
-        //클릭되었으면
-        if($("#cball").prop("checked")){
-            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 true로 정의
-            $(".all_agree input[type=checkbox]").prop("checked",true);
-            //클릭이 안되있으면
-        }else{
-            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 false로 정의
-            $(".all_agree input[type=checkbox]").prop("checked",false);
-        }
+    $(document).ready(function () {
+        //최상단 체크박스 클릭
+        $("#cball").click(function () {
+            //클릭되었으면
+            if ($("#cball").prop("checked")) {
+                //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 true로 정의
+                $(".all_agree input[type=checkbox]").prop("checked", true);
+                //클릭이 안되있으면
+            } else {
+                //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 false로 정의
+                $(".all_agree input[type=checkbox]").prop("checked", false);
+            }
+        })
     })
-})
 </script>
-
-
 {% endblock %}
 
-</html>

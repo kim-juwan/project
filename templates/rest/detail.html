@@ -1,128 +1,116 @@
 <!DOCTYPE html>
 {% extends 'rest/base.html' %}
-
 {% block content %}
-<html lang="en">
-
-<body>
-    <div class='container' align='center'>
-        <table class='table'>
-            <td colspan="2"><img src="data:;base64,{{image}}" width="370px" height="370px"></td>
-            <td style="width: 70%;">
-                <table class='table mytable' >
-
-                    <tr align="center">
-                        <td>
-                            <a>
-                                <font size="7" face='Cookie' color="#3D4449">
-                                    {{data.2}}
-                                </font>
-                            </a>
-
-
-                            <a>
-                                <font size="6" face='Nanum Pen Script' color="#7F888F">
-                                    {{data.4}}
-                                </font>
-                            </a>
-                        </td>
-                    </tr>
-                </table>
-                <table class='table mytable' style="margin-top: -18px;">
-                    <tr align='center'>
-                        <td style='width:20%'><a href='https://map.kakao.com/?itemId={{data.0}}' target="_blank"><img type='image/png'
-                                    width="60" height="60" src='/static/icon/map.png' /></a><br /><br />
-                            <a href='https://map.kakao.com/?itemId={{data.0}}' face='Comic Sans MS'
-                                class="btn btn-outline-success" target="_blank">지도보기</button></td>
-                        <td style='width:20%'><a href='https://map.kakao.com/?map_type=TYPE_MAP&target=walk&rt=975771,486419,{{data.11}},{{data.12}}&rt1=한가람IT&rt2={{data.2}}&rtIds=,{{data.0}}'
-                                target="_blank"> <img type='image/png' width="60" height="60"
-                                    src='/static/icon/route.png' /></a><br /><br />
-                            <a href='https://map.kakao.com/?map_type=TYPE_MAP&target=walk&rt=975771,486419,{{data.11}},{{data.12}}&rt1=한가람IT&rt2={{data.2}}&rtIds=,{{data.0}}'
-                                face='Comic Sans MS' class="btn btn-outline-primary" target="_blank">길찾기</a></td>
-                        <td style='width:20%'><a href='https://map.kakao.com/?srcid={{data.0}}&confirmid={{data.0}}&q={{data.2}}&rv=on'
-                                target="_blank"><img type='image/png' width="60" height="60"
-                                    src='/static/icon/street-view.png' /></a><br /><br />
-                            <a href='https://map.kakao.com/?srcid={{data.0}}&confirmid={{data.0}}&q={{data.2}}&rv=on'
-                                face='Comic Sans MS' class="btn btn-outline-danger" target="_blank">로드뷰</a></td>
-                                {% if request.session.login %}
-                                <td style='width:20%;text-align:middle;'>
-                                    <br/>
-                                    <button type='submit' class='btn btn-input' style='width:70px;font-size:large;font-family: Cookie;color:#3D4449;'onclick='location.href="/rest/edit?idno={{data.0}}"'>수정</button><br/>
-                                    <button class='btn btn-input' style='margin-top:5px;width:70px;font-size:large;font-family: Cookie;color:#3D4449;' id='delbtn' onclick='button_event()'>삭제</button>
-                                    
-
-                                    
-                                </td>
-                                {% endif %}
-
-                    </tr>
-
-
-                </table>
-                <table class='table mytable' style="margin-top: -18px;">
-                    <tr>
-                        <td>
-                            <details>
-                                <summary style="width: 100%;font-size:x-large;font-family: Cookie;color:#3D4449">정보</summary>
-                                <p style="color:#7F888F">
-                                    <a style="font-size:x-large;font-family: Cookie;"><strong>영업시간</strong></a><br/>
-                                    {% if data.7 == None %}<a style="font-size:x-large;font-family: Nanum Pen Script;">
+<div class='container' align='center'>
+    <table class='table'>
+        <td colspan="2"><img src="data:;base64,{{image}}" width="370px" height="370px"></td>
+        <td style="width: 70%;">
+            <table class='table mytable'>
+                <tr align="center">
+                    <td>
+                        <a><font size="7" face='Cookie' color="#3D4449">{{data.2}}</font></a>
+                        <a><font size="6" face='Nanum Pen Script' color="#7F888F">{{data.4}}</font></a>
+                    </td>
+                </tr>
+            </table>
+            <table class='table mytable' style="margin-top: -18px;">
+                <tr align='center'>
+                    <td style='width:20%'>
+                        <a href='https://map.kakao.com/?itemId={{data.0}}' target="_blank"><img type='image/png'
+                                width="60" height="60" src='/static/icon/map.png' /></a><br /><br />
+                        <a href='https://map.kakao.com/?itemId={{data.0}}' face='Comic Sans MS'
+                            class="btn btn-outline-success" target="_blank">지도보기</button>
+                    </td>
+                    <td style='width:20%'>
+                        <a href='https://map.kakao.com/?map_type=TYPE_MAP&target=walk&rt=975771,486419,{{data.11}},{{data.12}}&rt1=한가람IT&rt2={{data.2}}&rtIds=,{{data.0}}'
+                            target="_blank"> <img type='image/png' width="60" height="60"
+                                src='/static/icon/route.png' /></a><br /><br />
+                        <a href='https://map.kakao.com/?map_type=TYPE_MAP&target=walk&rt=975771,486419,{{data.11}},{{data.12}}&rt1=한가람IT&rt2={{data.2}}&rtIds=,{{data.0}}'
+                            face='Comic Sans MS' class="btn btn-outline-primary" target="_blank">길찾기</a>
+                    </td>
+                    <td style='width:20%'><a
+                            href='https://map.kakao.com/?srcid={{data.0}}&confirmid={{data.0}}&q={{data.2}}&rv=on'
+                            target="_blank"><img type='image/png' width="60" height="60"
+                                src='/static/icon/street-view.png' /></a><br /><br />
+                        <a href='https://map.kakao.com/?srcid={{data.0}}&confirmid={{data.0}}&q={{data.2}}&rv=on'
+                            face='Comic Sans MS' class="btn btn-outline-danger" target="_blank">로드뷰</a>
+                    </td>
+                    {% if request.session.login %}
+                    <td style='width:20%;text-align:middle;'><br />
+                        <button type='submit' class='btn btn-input'
+                            style='width:70px;font-size:large;font-family: Cookie;color:#3D4449;'
+                            onclick='location.href="/rest/edit?idno={{data.0}}"'>수정</button><br />
+                        <button class='btn btn-input'
+                            style='margin-top:5px;width:70px;font-size:large;font-family: Cookie;color:#3D4449;'
+                            id='delbtn' onclick='button_event()'>삭제</button>
+                    </td>
+                    {% endif %}
+                </tr>
+            </table>
+            <table class='table mytable' style="margin-top: -18px;">
+                <tr>
+                    <td>
+                        <details>
+                            <summary style="width: 100%;font-size:x-large;font-family: Cookie;color:#3D4449">정보
+                            </summary>
+                            <p style="color:#7F888F">
+                                <a style="font-size:x-large;font-family: Cookie;"><strong>영업시간</strong></a><br />
+                                {% if data.7 == None %}<a style="font-size:x-large;font-family: Nanum Pen Script;">
                                     - 등록된 영업시간 정보가 없습니다.</a>
-                                    {% else %}
-                                    <a style="font-size:x-large;font-family: Nanum Pen Script;">- {{data.7}}</a>
-                                    {% endif %}<br/><br/>
-                                    <a style="font-size:x-large;font-family: Cookie;"><strong>주소</strong></a><br/>
-                                    {% if data.1 == None %}<a style="font-size:x-large;font-family: Nanum Pen Script;">
-                                    - 등록된 주소가 없습니다.</a>
-                                    {% else %}                 
-                                    <a style="font-size:x-large;font-family: Nanum Pen Script;">- {{data.1}}</a>
-                                    {% endif %} <br/><br/>                 
-                                    <a style="font-size:x-large;font-family: Cookie;"><strong>전화번호</strong></a><br/>
-                                    {% if data.3 == None %} <a style="font-size:x-large;font-family: Nanum Pen Script;">
-                                    - 등록된 번호가 없습니다.</a>
-                                    {% else %} 
-                                    <a style="font-size:x-large;font-family: Nanum Pen Script;">- {{data.3}}</a>
-                                 {% endif %}</p>
-                            </details>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <details>
-                                <summary style="width: 100%;resize:none;font-size:x-large;font-family: Cookie;color:#3D4449">메뉴</summary>
-                                {% if menu == '' %}
-                                <p style="font-size:x-large;font-family: Nanum Pen Script;color:#7F888F"> - 등록된 메뉴가 없습니다.</p>
-                             
                                 {% else %}
-                                <p style="font-size:x-large;font-family: Nanum Pen Script;color:#7F888F">{% for tmp in menu %}
-                                     - {{tmp}}<br/>
-                                    {% endfor %}</p>
-                                {% endif %}
-                            </details>
-                        </td>
-                    </tr>
-                    
-                    
-                    
-                    
-                </table>
-            </td>
-</body>
+                                <a style="font-size:x-large;font-family: Nanum Pen Script;">- {{data.7}}</a>
+                                {% endif %}<br /><br />
+                                <a style="font-size:x-large;font-family: Cookie;"><strong>주소</strong></a><br />
+                                {% if data.1 == None %}<a style="font-size:x-large;font-family: Nanum Pen Script;">
+                                    - 등록된 주소가 없습니다.</a>
+                                {% else %}
+                                <a style="font-size:x-large;font-family: Nanum Pen Script;">- {{data.1}}</a>
+                                {% endif %} <br /><br />
+                                <a style="font-size:x-large;font-family: Cookie;"><strong>전화번호</strong></a><br />
+                                {% if data.3 == None %} <a style="font-size:x-large;font-family: Nanum Pen Script;">
+                                    - 등록된 번호가 없습니다.</a>
+                                {% else %}
+                                <a style="font-size:x-large;font-family: Nanum Pen Script;">- {{data.3}}</a>
+                                {% endif %}</p>
+                        </details>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <details>
+                            <summary
+                                style="width: 100%;resize:none;font-size:x-large;font-family: Cookie;color:#3D4449">메뉴
+                            </summary>
+                            {% if menu == '' %}
+                            <p style="font-size:x-large;font-family: Nanum Pen Script;color:#7F888F"> - 등록된 메뉴가 없습니다.
+                            </p>
 
-
+                            {% else %}
+                            <p style="font-size:x-large;font-family: Nanum Pen Script;color:#7F888F">
+                                {% for tmp in menu %}
+                                - {{tmp}}<br />
+                                {% endfor %}
+                            </p>
+                            {% endif %}
+                        </details>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </table>
+</div>
 <script type="text/javascript">
-    
-    function button_event(){
-    if (confirm("정말 삭제하시겠습니까??") == true){    //확인
-        location.href="/rest/delete?idno={{data.0}}"
-    }else{   //취소
-        return;
-    }
-    }
-    
-    </script>
-    
- 
+    function button_event() {
+        if (confirm("정말 삭제하시겠습니까??") == true) {    //확인
+            location.href = "/rest/delete?idno={{data.0}}"
+        } else {   //취소
+            return;
+        }
+    };
+
+</script>
+
+
 
 
 {% endblock %}
