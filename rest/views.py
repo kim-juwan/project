@@ -8,8 +8,6 @@ from base64 import b64encode
 import bcrypt
 import json
 
-
-# Create your views here.
 model = models.Database()
 func = models.Func()
 
@@ -17,7 +15,6 @@ func = models.Func()
 def Logout(request):
     del request.session['login']
     return redirect("/rest/home")
-
 @csrf_exempt
 def Login(request):
     if request.method == "GET":
@@ -29,18 +26,13 @@ def Login(request):
             request.session['login'] = True
         
         return HttpResponse(json.dumps(context),content_type='application/json')
-       
-
-
 def Index(request):
     data = model.Select_Asc()
     new_data = func.Randnum(data,5)
     new_data = func.Image_Data(new_data)
     return render(request,'rest/index.html',{'rand_data':new_data})
-
 def Home(request):
     return render(request,'rest/home.html')
-
 @csrf_exempt
 def Board(request):
     no = int(request.GET.get('no','1'))
@@ -61,20 +53,16 @@ def Board(request):
         ran = func.Pagination_cate(no,row,data,cate)
     new_data = func.Image_Data(data)    
     return render(request,'rest/board.html',{'asc_data':new_data,'no':no,'leng':ran[1],'subno':subno,'addno':addno,'ran10':ran[0],'search_word':search_word,'cate':cate})
-
 def Detail(request):
     idno = request.GET.get('idno')
     data = model.Select_One(idno)
     image = func.Image_Encoder(data)
     menu = func.Menu_Encoder(data)
     return render(request,'rest/detail.html',{'data':data,'image':image, 'menu':menu})
-
 def Search(request):
     return render(request,'rest/search.html')
-
 def Base(request):
     return render(request,'rest/base.html')
-
 @csrf_exempt
 def Edit(request):
     if request.method == "GET":
@@ -96,7 +84,6 @@ def Edit(request):
         model.Update_Data(new_data)
 
         return redirect(f'/rest/detail?idno={idno}')
-
 @csrf_exempt
 def Delete(request):
     if request.method == 'GET':

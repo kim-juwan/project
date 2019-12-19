@@ -32,7 +32,7 @@ for row in rows:
     week_list = []
     week4=[]
 
-    if soup.find('strong',class_='tit_operation') is not None:  #영업시간 가져오는..
+    if soup.find('strong',class_='tit_operation') is not None: 
         if soup.find('div', class_= 'fold_contact') is None:
             week1 = soup.find('strong',class_='tit_operation').text.split('\n')[0]
             week_list.append(week1)
@@ -46,7 +46,7 @@ for row in rows:
     if len(week_list) > 1 :
         week4 = str(week_list[0])
         for i in range(1, len(week_list)):
-            week4 += (' '+str(week_list[i])) ##영업시간 가져오는
+            week4 += (' '+str(week_list[i])) 
 
     
     menu4 = ''

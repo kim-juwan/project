@@ -1,6 +1,5 @@
 from django.db import models
 import cx_Oracle as oci
-# Create your models here.
 from django.db import connection
 import random
 from base64 import b64encode
@@ -10,27 +9,22 @@ import json
 class Database():
     def __init__(self):
         self.cursor = connection.cursor()
-
     def Select_Desc(self):
         select_sql = 'SELECT * FROM REST ORDER BY DIST DESC'
         self.cursor.execute(select_sql)
         result_data = self.cursor.fetchall()
         return result_data
-    ## 내림차순 정렬로 데이터 베이스에서 가져오기
     def Select_Asc(self):
         select_sql = 'SELECT * FROM REST ORDER BY DIST ASC'
         self.cursor.execute(select_sql)
         result_data = self.cursor.fetchall()
-        return result_data
-    ## 오름차순 정렬로 데이터 베이스에서 가져오기
-    
+        return result_data    
     def Word_Search(self,search_word,no,row):
         search_sql= f"SELECT * FROM REST WHERE NAME LIKE \'%{search_word}%\' ORDER BY DIST ASC"
         self.cursor.execute(search_sql)
         for i in range(no):
             result_data = self.cursor.fetchmany(row)
         return result_data
-
     def Select_Row(self,no,row):
         select_sql = 'SELECT * FROM REST ORDER BY DIST ASC'
         self.cursor.execute(select_sql)
@@ -58,7 +52,6 @@ class Database():
         for i in range(no):
             result_data = self.cursor.fetchmany(row)
         return result_data
-
     def Update_Data(self,data):
         update_sql = f"UPDATE REST SET CATE=\'{data[0]}\',WEEK=\'{data[1]}\',ADDR=\'{data[2]}\',MENU=\'{data[3]}\',PHONE=\'{data[4]}\' WHERE ID = \'{data[5]}\'"
         self.cursor.execute(update_sql)
@@ -72,8 +65,6 @@ class Database():
         self.cursor.execute(select_sql)
         data = self.cursor.fetchone()
         return data
-
-    
 class Func(Database):
     def __init__(self):
         pass
